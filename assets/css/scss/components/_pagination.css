@@ -1,0 +1,76 @@
+/* ================================= Pagination Css Start =========================== */
+.common-pagination {
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 64px;
+    gap: 8px;
+}
+
+@media screen and (max-width: 1199px) {
+    .common-pagination {
+        margin-top: 48px;
+    }
+}
+
+@media screen and (max-width: 991px) {
+    .common-pagination {
+        margin-top: 40px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .common-pagination {
+        margin-top: 32px;
+    }
+}
+
+.common-pagination .page-item.active .page-link {
+    color: hsl(var(--white));
+    background-color: hsl(var(--black));
+}
+
+.common-pagination .page-item .page-link {
+    border-radius: 8px;
+    width: 42px;
+    height: 43px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    font-weight: 600;
+    padding: 0;
+    color: hsl(var(--heading-color));
+    border: 1px solid hsl(var(--black)/0.3);
+    font-size: 1rem;
+}
+
+@media screen and (max-width: 991px) {
+    .common-pagination .page-item .page-link {
+        width: 48px;
+        height: 48px;
+    }
+}
+
+.common-pagination .page-item .page-link:hover, .common-pagination .page-item .page-link:focus, .common-pagination .page-item .page-link:focus-visible {
+    color: hsl(var(--white));
+    background-color: hsl(var(--black));
+}
+
+.common-pagination .page-item .page-link:focus {
+    box-shadow: none;
+}
+
+.common-pagination .page-item:last-child .page-link {
+    width: unset;
+    height: unset;
+    background-color: hsl(var(--section-bg));
+    border-color: hsl(var(--section-bg));
+    padding: 9px 16px;
+}
+
+.common-pagination .page-item:last-child .page-link:hover, .common-pagination .page-item:last-child .page-link:focus, .common-pagination .page-item:last-child .page-link:focus-visible {
+    color: hsl(var(--white));
+    background-color: hsl(var(--black));
+}
+
+/* ================================= Pagination Css End =========================== */

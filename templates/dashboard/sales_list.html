@@ -1,0 +1,75 @@
+{% extends 'dashboard/base.html' %}
+{% load static %}
+
+{% block title %}Sales History - Dashboard{% endblock %}
+
+{% block content %}
+
+<!-- Page Header -->
+<div class="dashboard-body__bar mb-32">
+    <h4 class="dashboard-body__title mb-0">Sales History</h4>
+</div>
+
+<!-- Sales Table -->
+<div class="dashboard-body__item">
+    <div class="table-responsive">
+        <table class="table style-two">
+            <thead>
+                <tr>
+                    <th>Transaction ID</th>
+                    <th>Customer</th>
+                    <th>Product</th>
+                    <th>Price</th>
+                    <th>Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for purchase in purchases %}
+                <tr>
+                    <td><code>{{ purchase.transaction_id }}</code></td>
+                    <td>
+                        <div class="d-flex align-items-center gap-2">
+                            <strong>{{ purchase.user.username }}</strong>
+                            <small class="text-muted">{{ purchase.user.email }}</small>
+                        </div>
+                    </td>
+                    <td>{{ purchase.prompt.title|truncatewords:8 }}</td>
+                    <td><strong>${{ purchase.price_paid|floatformat:2 }}</strong></td>
+                    <td>{{ purchase.created_at|date:"d/m/Y H:i" }}</td>
+                </tr>
+                {% empty %}
+                <tr>
+                    <td colspan="5" class="text-center text-muted">No sales yet</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Pagination -->
+    {% if purchases.has_other_pages %}
+    <div class="d-flex justify-content-center mt-4">
+        <nav>
+            <ul class="pagination">
+                {% if purchases.has_previous %}
+                <li class="page-item">
+                    <a class="page-link" href="?page={{ purchases.previous_page_number }}">Previous</a>
+                </li>
+                {% endif %}
+
+                <li class="page-item active">
+                    <span class="page-link">{{ purchases.number }} / {{ purchases.paginator.num_pages }}</span>
+                </li>
+
+                {% if purchases.has_next %}
+                <li class="page-item">
+                    <a class="page-link" href="?page={{ purchases.next_page_number }}">Next</a>
+                </li>
+                {% endif %}
+            </ul>
+        </nav>
+    </div>
+    {% endif %}
+</div>
+
+{% endblock %}

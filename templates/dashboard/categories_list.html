@@ -1,0 +1,143 @@
+{% extends 'dashboard/base.html' %}
+{% load static %}
+
+{% block title %}Categories Management - Dashboard{% endblock %}
+
+{% block content %}
+
+<!-- Page Header -->
+<div class="dashboard-body__bar flx-between gap-2 mb-32">
+    <h4 class="dashboard-body__title mb-0">Categories Management</h4>
+    <button type="button" class="btn btn-main btn-sm pill" data-bs-toggle="modal" data-bs-target="#addCategoryModal">
+        <i class="las la-plus"></i> Add New Category
+    </button>
+</div>
+
+<!-- Categories Grid -->
+<div class="dashboard-body__item">
+    <div class="row gy-4">
+        {% for category in categories %}
+        <div class="col-xl-3 col-md-4 col-sm-6">
+            <div class="dashboard-widget h-100">
+                <img src="{% static 'assets/images/shapes/widget-shape1.png' %}" alt="" class="dashboard-widget__shape one">
+                <img src="{% static 'assets/images/shapes/widget-shape2.png' %}" alt="" class="dashboard-widget__shape two">
+                <span class="dashboard-widget__icon">
+                    <i class="{{ category.icon }} fa-2x"></i>
+                </span>
+                <div class="dashboard-widget__content">
+                    <h5 class="mb-2 mt-3">{{ category.name }}</h5>
+                    <p class="text-muted small mb-2">{{ category.description|truncatewords:10 }}</p>
+                    <div class="flx-between align-items-end">
+                        <div>
+                            <h4 class="dashboard-widget__number mb-0">{{ category.product_count }}</h4>
+                            <span class="dashboard-widget__text font-14">Products</span>
+                        </div>
+                        <div class="d-flex gap-1">
+                            <button class="btn btn-sm btn-outline-primary" 
+                                    onclick="editCategory({{ category.id }}, '{{ category.name }}', '{{ category.icon }}', '{{ category.description }}')"
+                                    title="Edit">
+                                <i class="las la-edit"></i>
+                            </button>
+                            <form method="post" action="{% url 'dashboard:category-delete' category.id %}" class="d-inline">
+                                {% csrf_token %}
+                                <button type="submit" class="btn btn-sm btn-outline-danger" 
+                                        onclick="return confirm('Delete {{ category.name }}? This will affect {{ category.product_count }} products.')"
+                                        title="Delete">
+                                    <i class="las la-trash"></i>
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% empty %}
+        <div class="col-12">
+            <p class="text-center text-muted">No categories yet. Add your first category!</p>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+<!-- Add Category Modal -->
+<div class="modal fade" id="addCategoryModal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form method="post" action="{% url 'dashboard:category-create' %}">
+                {% csrf_token %}
+                <div class="modal-header">
+                    <h5 class="modal-title">Add New Category</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label class="form-label">Name *</label>
+                        <input type="text" name="name" class="form-control" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Icon (Font Awesome class)</label>
+                        <input type="text" name="icon" class="form-control" placeholder="fas fa-brain">
+                        <small class="text-muted">Example: fas fa-brain, fas fa-palette</small>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Description</label>
+                        <textarea name="description" class="form-control" rows="3"></textarea>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="submit" class="btn btn-main">Create Category</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Edit Category Modal -->
+<div class="modal fade" id="editCategoryModal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form method="post" id="editCategoryForm">
+                {% csrf_token %}
+                <div class="modal-header">
+                    <h5 class="modal-title">Edit Category</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label class="form-label">Name *</label>
+                        <input type="text" name="name" id="edit_name" class="form-control" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Icon (Font Awesome class)</label>
+                        <input type="text" name="icon" id="edit_icon" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Description</label>
+                        <textarea name="description" id="edit_description" class="form-control" rows="3"></textarea>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="submit" class="btn btn-main">Update Category</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block extra_js %}
+<script>
+function editCategory(id, name, icon, description) {
+    document.getElementById('editCategoryForm').action = `/dashboard/categories/${id}/edit/`;
+    document.getElementById('edit_name').value = name;
+    document.getElementById('edit_icon').value = icon;
+    document.getElementById('edit_description').value = description;
+    
+    var modal = new bootstrap.Modal(document.getElementById('editCategoryModal'));
+    modal.show();
+}
+</script>
+{% endblock %}

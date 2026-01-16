@@ -1,0 +1,37 @@
+{% load static %}
+<!-- ==================== Mobile Menu Start Here ==================== -->
+<div class="mobile-menu d-lg-none d-block">
+    <button type="button" class="close-button"> <i class="las la-times"></i> </button>
+    <div class="mobile-menu__inner">
+        <a href="{% url 'core:home' %}" class="mobile-menu__logo">
+            <img src="{% static 'assets/images/logo/logo.png' %}" alt="Logo" class="white-version">
+            <img src="{% static 'assets/images/logo/white-logo-two.png' %}" alt="Logo" class="dark-version">
+        </a>
+        <div class="mobile-menu__menu">
+            <ul class="nav-menu flx-align nav-menu--mobile">
+                <li class="nav-menu__item">
+                    <a href="{% url 'dashboard:home' %}" class="nav-menu__link">Dashboard</a>
+                </li>
+                <li class="nav-menu__item">
+                    <a href="{% url 'dashboard:prompts' %}" class="nav-menu__link">Products</a>
+                </li>
+                <li class="nav-menu__item">
+                    <a href="{% url 'dashboard:categories' %}" class="nav-menu__link">Categories</a>
+                </li>
+                <li class="nav-menu__item">
+                    <a href="{% url 'dashboard:sales' %}" class="nav-menu__link">Sales</a>
+                </li>
+                <li class="nav-menu__item">
+                    <a href="{% url 'dashboard:reviews' %}" class="nav-menu__link">Reviews</a>
+                </li>
+                <li class="nav-menu__item">
+                    <a href="{% url 'dashboard:users' %}" class="nav-menu__link">Users</a>
+                </li>
+                <li class="nav-menu__item">
+                    <a href="{% url 'dashboard:settings' %}" class="nav-menu__link">Settings</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!-- ==================== Mobile Menu End Here ==================== -->

@@ -1,0 +1,126 @@
+{% extends 'dashboard/base.html' %}
+{% load static %}
+
+{% block title %}Reviews Management - Dashboard{% endblock %}
+
+{% block content %}
+
+<!-- Page Header -->
+<div class="dashboard-body__bar mb-32">
+    <h4 class="dashboard-body__title mb-0">Reviews Management</h4>
+</div>
+
+<!-- Reviews Table -->
+<div class="dashboard-body__item">
+    <div class="table-responsive">
+        <table class="table style-two">
+            <thead>
+                <tr>
+                    <th>User</th>
+                    <th>Product</th>
+                    <th>Rating</th>
+                    <th>Comment</th>
+                    <th>Date</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for review in reviews %}
+                <tr>
+                    <td>
+                        <strong>{{ review.user.username }}</strong>
+                    </td>
+                    <td>{{ review.prompt.title|truncatewords:6 }}</td>
+                    <td>
+                        <span class="badge bg-warning text-dark">
+                            ⭐ {{ review.rating }}/5
+                        </span>
+                    </td>
+                    <td>{{ review.comment|truncatewords:15 }}</td>
+                    <td>{{ review.created_at|date:"d/m/Y" }}</td>
+                    <td>
+                        <button class="btn btn-sm btn-outline-primary" onclick="viewReview({{ review.id }}, '{{ review.user.username }}', '{{ review.prompt.title }}', {{ review.rating }}, '{{ review.comment|escapejs }}')">
+                            <i class="las la-eye"></i> View
+                        </button>
+                    </td>
+                </tr>
+                {% empty %}
+                <tr>
+                    <td colspan="6" class="text-center text-muted">No reviews yet</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Pagination -->
+    {% if reviews.has_other_pages %}
+    <div class="d-flex justify-content-center mt-4">
+        <nav>
+            <ul class="pagination">
+                {% if reviews.has_previous %}
+                <li class="page-item">
+                    <a class="page-link" href="?page={{ reviews.previous_page_number }}">Previous</a>
+                </li>
+                {% endif %}
+
+                <li class="page-item active">
+                    <span class="page-link">{{ reviews.number }} / {{ reviews.paginator.num_pages }}</span>
+                </li>
+
+                {% if reviews.has_next %}
+                <li class="page-item">
+                    <a class="page-link" href="?page={{ reviews.next_page_number }}">Next</a>
+                </li>
+                {% endif %}
+            </ul>
+        </nav>
+    </div>
+    {% endif %}
+</div>
+
+<!-- View Review Modal -->
+<div class="modal fade" id="viewReviewModal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Review Details</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <div class="mb-3">
+                    <strong>User:</strong> <span id="review_user"></span>
+                </div>
+                <div class="mb-3">
+                    <strong>Product:</strong> <span id="review_product"></span>
+                </div>
+                <div class="mb-3">
+                    <strong>Rating:</strong> <span id="review_rating"></span>
+                </div>
+                <div class="mb-3">
+                    <strong>Comment:</strong>
+                    <p id="review_comment" class="mt-2"></p>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block extra_js %}
+<script>
+function viewReview(id, user, product, rating, comment) {
+    document.getElementById('review_user').textContent = user;
+    document.getElementById('review_product').textContent = product;
+    document.getElementById('review_rating').textContent = '⭐'.repeat(rating);
+    document.getElementById('review_comment').textContent = comment;
+    
+    var modal = new bootstrap.Modal(document.getElementById('viewReviewModal'));
+    modal.show();
+}
+</script>
+{% endblock %}

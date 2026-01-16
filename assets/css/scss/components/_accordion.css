@@ -1,0 +1,97 @@
+/* =========================== Accordion Css start ============================= */
+.common-accordion .accordion-item {
+    border: 1px solid hsl(var(--border-color));
+    background-color: hsl(var(--white)) !important;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.common-accordion .accordion-item:not(:last-child) {
+    margin-bottom: 20px;
+}
+
+.common-accordion .accordion-header {
+    line-height: 1;
+}
+
+.common-accordion .accordion-body {
+    padding: 20px 30px;
+    padding-top: 0;
+}
+
+@media screen and (max-width: 575px) {
+    .common-accordion .accordion-body {
+        padding: 12px 20px;
+        padding-top: 0;
+    }
+}
+
+.common-accordion:first-of-type .accordion-button.collapsed {
+    border-radius: 5px;
+}
+
+.common-accordion:last-of-type .accordion-button.collapsed {
+    border-radius: 5px;
+}
+
+.common-accordion .accordion-button {
+    color: var(--heading-color);
+    font-size: 1.125rem;
+    padding: 20px 30px;
+    padding-right: 46px;
+    font-weight: 600;
+    font-size: clamp(1rem, 0.696rem + 0.634vw, 1.25rem);
+    font-family: var(--heading-font);
+}
+
+@media screen and (max-width: 575px) {
+    .common-accordion .accordion-button {
+        padding: 12px 20px;
+        padding-right: 36px;
+    }
+}
+
+.common-accordion .accordion-button::after {
+    background-image: none;
+}
+
+.common-accordion .accordion-button:focus {
+    box-shadow: none;
+}
+
+.common-accordion .accordion-button:not(.collapsed) {
+    background-color: transparent !important;
+    box-shadow: none;
+    color: hsl(var(--main));
+}
+
+.common-accordion .accordion-button:not(.collapsed)::after {
+    background-image: none;
+    color: hsl(var(--main));
+}
+
+.common-accordion .accordion-button[aria-expanded=true]::after, .common-accordion .accordion-button[aria-expanded=false]::after {
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    content: "\f106";
+    color: hsl(var(--main));
+    display: inline-block;
+    position: absolute;
+    right: 30px;
+    height: unset;
+    font-size: 1rem;
+    text-align: center;
+}
+
+@media screen and (max-width: 575px) {
+    .common-accordion .accordion-button[aria-expanded=true]::after, .common-accordion .accordion-button[aria-expanded=false]::after {
+        right: 20px;
+    }
+}
+
+.common-accordion .accordion-button[aria-expanded=false]::after {
+    content: "\f107";
+    color: hsl(var(--heading-color));
+}
+
+/* ================================= Accordion Css End =========================== */

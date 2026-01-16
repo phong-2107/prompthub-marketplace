@@ -1,0 +1,102 @@
+{% load static %}
+<!-- ===================== Dashboard Sidebar Start ======================= -->
+<div class="dashboard-sidebar">
+    <button type="button" class="dashboard-sidebar__close d-lg-none d-flex"><i class="las la-times"></i></button>
+    <div class="dashboard-sidebar__inner">
+        <a href="{% url 'core:home' %}" class="logo mb-48">
+            <img src="{% static 'assets/images/logo/logo.png' %}" alt="" class="white-version">
+            <img src="{% static 'assets/images/logo/white-logo-two.png' %}" alt="" class="dark-version">
+        </a>
+        <a href="{% url 'core:home' %}" class="logo favicon mb-48">
+            <img src="{% static 'assets/images/logo/favicon.png' %}" alt="">
+        </a>
+
+        <!-- Sidebar List Start -->
+        <ul class="sidebar-list">
+            <li class="sidebar-list__item">
+                <a href="{% url 'dashboard:home' %}" class="sidebar-list__link {% if request.resolver_match.url_name == 'home' %}active{% endif %}">
+                    <span class="sidebar-list__icon">
+                        <img src="{% static 'assets/images/icons/sidebar-icon1.svg' %}" alt="" class="icon">
+                        <img src="{% static 'assets/images/icons/sidebar-icon-active1.svg' %}" alt="" class="icon icon-active">
+                    </span>
+                    <span class="text">Dashboard</span>
+                </a>
+            </li>
+            <li class="sidebar-list__item">
+                <a href="{% url 'dashboard:prompts' %}" class="sidebar-list__link {% if request.resolver_match.url_name == 'prompts' %}active{% endif %}">
+                    <span class="sidebar-list__icon">
+                        <img src="{% static 'assets/images/icons/sidebar-icon3.svg' %}" alt="" class="icon">
+                        <img src="{% static 'assets/images/icons/sidebar-icon-active3.svg' %}" alt="" class="icon icon-active">
+                    </span>
+                    <span class="text">Products</span>
+                </a>
+            </li>
+            <li class="sidebar-list__item">
+                <a href="{% url 'dashboard:categories' %}" class="sidebar-list__link {% if request.resolver_match.url_name == 'categories' %}active{% endif %}">
+                    <span class="sidebar-list__icon">
+                        <img src="{% static 'assets/images/icons/sidebar-icon9.svg' %}" alt="" class="icon">
+                        <img src="{% static 'assets/images/icons/sidebar-icon-active9.svg' %}" alt="" class="icon icon-active">
+                    </span>
+                    <span class="text">Categories</span>
+                </a>
+            </li>
+            <li class="sidebar-list__item">
+                <a href="{% url 'dashboard:sales' %}" class="sidebar-list__link {% if request.resolver_match.url_name == 'sales' %}active{% endif %}">
+                    <span class="sidebar-list__icon">
+                        <img src="{% static 'assets/images/icons/sidebar-icon6.svg' %}" alt="" class="icon">
+                        <img src="{% static 'assets/images/icons/sidebar-icon-active6.svg' %}" alt="" class="icon icon-active">
+                    </span>
+                    <span class="text">Sales</span>
+                </a>
+            </li>
+            <li class="sidebar-list__item">
+                <a href="{% url 'dashboard:reviews' %}" class="sidebar-list__link {% if request.resolver_match.url_name == 'reviews' %}active{% endif %}">
+                    <span class="sidebar-list__icon">
+                        <img src="{% static 'assets/images/icons/sidebar-icon7.svg' %}" alt="" class="icon">
+                        <img src="{% static 'assets/images/icons/sidebar-icon-active7.svg' %}" alt="" class="icon icon-active">
+                    </span>
+                    <span class="text">Reviews</span>
+                </a>
+            </li>
+            <li class="sidebar-list__item">
+                <a href="{% url 'dashboard:users' %}" class="sidebar-list__link {% if request.resolver_match.url_name == 'users' %}active{% endif %}">
+                    <span class="sidebar-list__icon">
+                        <img src="{% static 'assets/images/icons/sidebar-icon2.svg' %}" alt="" class="icon">
+                        <img src="{% static 'assets/images/icons/sidebar-icon-active2.svg' %}" alt="" class="icon icon-active">
+                    </span>
+                    <span class="text">Users</span>
+                </a>
+            </li>
+            <li class="sidebar-list__item">
+                <a href="{% url 'dashboard:earnings' %}" class="sidebar-list__link {% if request.resolver_match.url_name == 'earnings' %}active{% endif %}">
+                    <span class="sidebar-list__icon">
+                        <img src="{% static 'assets/images/icons/sidebar-icon11.svg' %}" alt="" class="icon">
+                        <img src="{% static 'assets/images/icons/sidebar-icon-active11.svg' %}" alt="" class="icon icon-active">
+                    </span>
+                    <span class="text">Earnings</span>
+                </a>
+            </li>
+            <li class="sidebar-list__item">
+                <a href="{% url 'dashboard:settings' %}" class="sidebar-list__link {% if request.resolver_match.url_name == 'settings' %}active{% endif %}">
+                    <span class="sidebar-list__icon">
+                        <img src="{% static 'assets/images/icons/sidebar-icon10.svg' %}" alt="" class="icon">
+                        <img src="{% static 'assets/images/icons/sidebar-icon-active10.svg' %}" alt="" class="icon icon-active">
+                    </span>
+                    <span class="text">Settings</span>
+                </a>
+            </li>
+            <li class="sidebar-list__item">
+                <a href="{% url 'logout' %}?next=/" class="sidebar-list__link">
+                    <span class="sidebar-list__icon">
+                        <img src="{% static 'assets/images/icons/sidebar-icon13.svg' %}" alt="" class="icon">
+                        <img src="{% static 'assets/images/icons/sidebar-icon-active13.svg' %}" alt="" class="icon icon-active">
+                    </span>
+                    <span class="text">Logout</span>
+                </a>
+            </li>
+        </ul>
+        <!-- Sidebar List End -->
+        
+    </div>
+</div>
+<!-- ===================== Dashboard Sidebar End ======================= -->

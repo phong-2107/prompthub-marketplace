@@ -1,0 +1,196 @@
+/* ================================= Tab Css Start =========================== */
+.common-tab {
+    margin-bottom: 20px;
+    gap: 16px;
+  /* Style Icon */
+}
+
+@media screen and (max-width: 991px) {
+    .common-tab {
+        gap: 8px;
+    }
+}
+
+.common-tab .nav-item {
+    border-bottom: 0;
+}
+
+.common-tab .nav-item .nav-link {
+    color: hsl(var(--heading-color));
+    padding: 7px 16px !important;
+    background-color: transparent;
+    transition: 0.2s linear;
+    border-radius: 8px;
+    border: 1px solid hsl(var(--gray-five));
+    text-transform: capitalize;
+    font-weight: 500;
+    overflow: hidden;
+    font-size: 0.875rem;
+}
+
+@media screen and (max-width: 991px) {
+    .common-tab .nav-item .nav-link {
+        padding: 5px 10px !important;
+    }
+}
+
+.common-tab .nav-item .nav-link.active {
+    color: hsl(var(--white)) !important;
+    background-color: hsl(var(--heading-color)) !important;
+    border-color: hsl(var(--heading-color)) !important;
+    font-weight: 300;
+}
+
+.common-tab .nav-item .nav-link:hover {
+    color: hsl(var(--main));
+    background-color: hsl(var(--white));
+}
+
+.common-tab.style-icon .nav-item .nav-link {
+    padding: 0 !important;
+    border: 0 !important;
+    background-color: transparent !important;
+    overflow: unset;
+}
+
+.common-tab.style-icon .nav-item .nav-link .product-category-list__item {
+    box-shadow: 0px 5px 10px 0px rgba(204, 204, 204, 0.25);
+}
+
+.common-tab.style-icon .nav-item .nav-link .product-category-list__item .text {
+    display: none;
+}
+
+.common-tab.style-icon .nav-item .nav-link.active .product-category-list__item {
+    padding: 10px;
+    height: unset;
+    width: unset;
+    border-radius: 50px !important;
+    border: 1px solid hsl(var(--main));
+    background-color: hsl(var(--white));
+    box-shadow: 0px 5px 10px 0px rgba(204, 204, 204, 0.25);
+    color: hsl(var(--heading-color));
+    font-weight: 500;
+}
+
+.common-tab.style-icon .nav-item .nav-link.active .product-category-list__item .text {
+    display: block;
+}
+
+/* Style Gradient */
+.tab-gradient {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.tab-gradient .nav-item .nav-link {
+    background-color: transparent !important;
+    position: relative;
+    z-index: 1;
+    color: hsl(var(--heading-color));
+    font-size: 1.125rem;
+    text-transform: capitalize;
+    font-weight: 400;
+    padding: 14px 50px;
+}
+
+@media screen and (max-width: 1199px) {
+    .tab-gradient .nav-item .nav-link {
+        padding: 10px 30px;
+        font-size: 1rem;
+    }
+}
+
+.tab-gradient .nav-item .nav-link::before, .tab-gradient .nav-item .nav-link::after {
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 100%;
+    background: hsl(var(--white));
+    left: 0;
+    top: 0;
+    border-radius: inherit;
+    z-index: -1;
+}
+
+.tab-gradient .nav-item .nav-link::after {
+    background: var(--main-gradient);
+    visibility: hidden;
+    opacity: 0;
+}
+
+.tab-gradient .nav-item .nav-link.active {
+    color: hsl(var(--white));
+    font-weight: 300;
+}
+
+.tab-gradient .nav-item .nav-link.active::before {
+    visibility: hidden;
+    opacity: 0;
+}
+
+.tab-gradient .nav-item .nav-link.active::after {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* Bordered Tab */
+.tab-bordered {
+    gap: 32px;
+    margin-bottom: 0px;
+}
+
+@media screen and (max-width: 1199px) {
+    .tab-bordered {
+        gap: 24px;
+    }
+}
+
+@media screen and (max-width: 991px) {
+    .tab-bordered {
+        gap: 16px;
+    }
+}
+
+@media screen and (max-width: 575px) {
+    .tab-bordered {
+        gap: 8px;
+        margin-bottom: 24px;
+    }
+}
+
+.tab-bordered .nav-link {
+    background-color: transparent;
+    border: 1px solid hsl(var(--gray-five));
+    border-radius: 5px;
+    color: hsl(var(--body-color));
+    padding: 5px 8px;
+}
+
+@media (min-width: 575px) {
+    .tab-bordered .nav-link {
+        background-color: transparent;
+        padding: 0;
+        color: hsl(var(--body-color)) !important;
+        font-size: 14px;
+        padding-bottom: 16px !important;
+        border: 0;
+        border-bottom: 2px solid transparent;
+        border-radius: 0;
+    }
+}
+
+.tab-bordered .nav-link.active {
+    background-color: transparent;
+    color: hsl(var(--heading-color)) !important;
+    font-weight: 600;
+    border-color: hsl(var(--heading-color)) !important;
+}
+
+.tab-bordered .nav-link.active .star-rating__text {
+    color: hsl(var(--heading-color)) !important;
+    font-weight: 600;
+}
+
+/* ================================= Tab Css End =========================== */

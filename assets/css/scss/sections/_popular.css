@@ -1,0 +1,44 @@
+/* ======================== popular Section Css Start =========================== */
+.popular__button {
+    margin-top: clamp(1.5rem, -0.326rem + 3.803vw, 3rem);
+}
+
+.popular-item {
+    padding: 40px 16px;
+    text-align: center;
+    border-radius: 8px;
+    background: linear-gradient(117deg, #FFF2F9 14.01%, #F2EEFF 120.85%);
+    position: relative;
+    z-index: 1;
+    transition: 0.2s linear;
+}
+
+.popular-item::before {
+    position: absolute;
+    content: "";
+    width: calc(100% - 16px);
+    height: calc(100% - 16px);
+    border-radius: inherit;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-color: hsl(var(--white));
+    z-index: -1;
+}
+
+.popular-item__icon {
+    width: 88px;
+    height: 88px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background-color: hsl(var(--section-bg));
+}
+
+.popular-item__title {
+    margin-bottom: 0;
+    margin-top: 24px;
+}
+
+/* ======================== popular Section Css End =========================== */

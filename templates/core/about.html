@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ title }} - Django Project{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row py-5">
+        <div class="col-lg-8 mx-auto">
+            <h1 class="mb-4">{{ title }}</h1>
+            
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h3>Về dự án</h3>
+                    <p class="lead">
+                        Đây là một dự án Django chuyên nghiệp được xây dựng với cấu trúc chuẩn,
+                        sử dụng PostgreSQL làm cơ sở dữ liệu và Bootstrap 5 cho giao diện người dùng.
+                    </p>
+                    
+                    <h4 class="mt-4">Tính năng chính</h4>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">
+                            <i class="bi bi-check-circle-fill text-success"></i>
+                            Cấu trúc dự án modular, dễ bảo trì
+                        </li>
+                        <li class="list-group-item">
+                            <i class="bi bi-check-circle-fill text-success"></i>
+                            Custom User model với các trường mở rộng
+                        </li>
+                        <li class="list-group-item">
+                            <i class="bi bi-check-circle-fill text-success"></i>
+                            REST API với Django REST Framework
+                        </li>
+                        <li class="list-group-item">
+                            <i class="bi bi-check-circle-fill text-success"></i>
+                            Celery để xử lý tác vụ bất đồng bộ
+                        </li>
+                        <li class="list-group-item">
+                            <i class="bi bi-check-circle-fill text-success"></i>
+                            Redis cho caching và message broker
+                        </li>
+                        <li class="list-group-item">
+                            <i class="bi bi-check-circle-fill text-success"></i>
+                            Docker cho containerization
+                        </li>
+                        <li class="list-group-item">
+                            <i class="bi bi-check-circle-fill text-success"></i>
+                            Cấu hình riêng cho development và production
+                        </li>
+                    </ul>
+
+                    <h4 class="mt-4">Cấu trúc dự án</h4>
+                    <pre class="bg-light p-3 rounded"><code>PromptProject/
+├── apps/
+│   ├── api/          # REST API
+│   ├── core/         # Core app
+│   └── users/        # User management
+├── config/
+│   ├── settings/     # Settings modules
+│   ├── urls.py
+│   ├── wsgi.py
+│   └── celery.py
+├── static/           # Static files
+├── templates/        # HTML templates
+├── media/            # User uploads
+└── manage.py</code></pre>
+
+                    <div class="mt-4">
+                        <a href="{% url 'core:home' %}" class="btn btn-primary">
+                            <i class="bi bi-house"></i> Về trang chủ
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,153 @@
+{% extends 'dashboard/base.html' %}
+{% load static %}
+
+{% block title %}Products Management - Dashboard{% endblock %}
+
+{% block content %}
+
+<!-- Page Header -->
+<div class="dashboard-body__bar flx-between gap-2 mb-32">
+    <h4 class="dashboard-body__title mb-0">Products Management</h4>
+    <a href="{% url 'dashboard:prompt-create' %}" class="btn btn-main btn-sm pill">
+        <i class="las la-plus"></i> Add New Product
+    </a>
+</div>
+
+<!-- Filters -->
+<div class="dashboard-body__item mb-24">
+    <form method="get" class="row gy-3">
+        <div class="col-md-3">
+            <select name="category" class="form-select">
+                <option value="">All Categories</option>
+                {% for cat in categories %}
+                <option value="{{ cat.id }}" {% if request.GET.category == cat.id|stringformat:"s" %}selected{% endif %}>
+                    {{ cat.name }}
+                </option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="col-md-3">
+            <select name="status" class="form-select">
+                <option value="">All Status</option>
+                <option value="published" {% if request.GET.status == 'published' %}selected{% endif %}>Published</option>
+                <option value="draft" {% if request.GET.status == 'draft' %}selected{% endif %}>Draft</option>
+                <option value="suspended" {% if request.GET.status == 'suspended' %}selected{% endif %}>Suspended</option>
+            </select>
+        </div>
+        <div class="col-md-4">
+            <input type="text" name="q" class="form-control" placeholder="Search products..." value="{{ request.GET.q }}">
+        </div>
+        <div class="col-md-2">
+            <button type="submit" class="btn btn-main w-100">Filter</button>
+        </div>
+    </form>
+</div>
+
+<!-- Products Table -->
+<div class="dashboard-body__item">
+    <div class="table-responsive">
+        <table class="table style-two">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Product</th>
+                    <th>Category</th>
+                    <th>Price</th>
+                    <th>Status</th>
+                    <th>Views</th>
+                    <th>Downloads</th>
+                    <th>Rating</th>
+                    <th>Date</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for prompt in prompts %}
+                <tr>
+                    <td>{{ prompt.id }}</td>
+                    <td>
+                        <div class="d-flex align-items-center gap-2">
+                            {% if prompt.thumbnail %}
+                            <img src="{{ prompt.thumbnail.url }}" alt="{{ prompt.title }}" 
+                                 style="width: 40px; height: 40px; object-fit: cover; border-radius: 4px;">
+                            {% endif %}
+                            <div>
+                                <strong>{{ prompt.title|truncatewords:5 }}</strong>
+                                {% if prompt.featured %}<span class="badge bg-warning text-dark ms-1">Featured</span>{% endif %}
+                            </div>
+                        </div>
+                    </td>
+                    <td>{{ prompt.category.name }}</td>
+                    <td>
+                        {% if prompt.original_price %}
+                            <span class="text-muted text-decoration-line-through">${{ prompt.original_price }}</span>
+                        {% endif %}
+                        <strong>${{ prompt.price }}</strong>
+                    </td>
+                    <td>
+                        {% if prompt.status == 'published' %}
+                        <span class="badge bg-success">Published</span>
+                        {% elif prompt.status == 'draft' %}
+                        <span class="badge bg-secondary">Draft</span>
+                        {% else %}
+                        <span class="badge bg-danger">Suspended</span>
+                        {% endif %}
+                    </td>
+                    <td>{{ prompt.views }}</td>
+                    <td>{{ prompt.downloads }}</td>
+                    <td>⭐ {{ prompt.rating|floatformat:1 }} ({{ prompt.rating_count }})</td>
+                    <td>{{ prompt.created_at|date:"d/m/Y" }}</td>
+                    <td>
+                        <div class="d-flex gap-1">
+                            <a href="{% url 'dashboard:prompt-edit' prompt.id %}" class="btn btn-sm btn-outline-primary" title="Edit">
+                                <i class="las la-edit"></i>
+                            </a>
+                            <a href="{% url 'dashboard:prompt-delete' prompt.id %}" class="btn btn-sm btn-outline-danger" 
+                               onclick="return confirm('Delete this product?')" title="Delete">
+                                <i class="las la-trash"></i>
+                            </a>
+                        </div>
+                    </td>
+                </tr>
+                {% empty %}
+                <tr>
+                    <td colspan="10" class="text-center text-muted">No products found</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Pagination -->
+    {% if prompts.has_other_pages %}
+    <div class="d-flex justify-content-center mt-4">
+        <nav>
+            <ul class="pagination">
+                {% if prompts.has_previous %}
+                <li class="page-item">
+                    <a class="page-link" href="?page=1{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}">First</a>
+                </li>
+                <li class="page-item">
+                    <a class="page-link" href="?page={{ prompts.previous_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}">Previous</a>
+                </li>
+                {% endif %}
+
+                <li class="page-item active">
+                    <span class="page-link">{{ prompts.number }} / {{ prompts.paginator.num_pages }}</span>
+                </li>
+
+                {% if prompts.has_next %}
+                <li class="page-item">
+                    <a class="page-link" href="?page={{ prompts.next_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}">Next</a>
+                </li>
+                <li class="page-item">
+                    <a class="page-link" href="?page={{ prompts.paginator.num_pages }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}">Last</a>
+                </li>
+                {% endif %}
+            </ul>
+        </nav>
+    </div>
+    {% endif %}
+</div>
+
+{% endblock %}

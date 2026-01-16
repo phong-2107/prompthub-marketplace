@@ -1,0 +1,161 @@
+/* ========================= Pricing Plan Section Css Start ============================ */
+.pricing-tabs {
+    position: relative;
+    background-color: #F5F7F9;
+    padding: 8px;
+    border-radius: 56px;
+}
+
+@media screen and (max-width: 1199px) {
+    .pricing-tabs {
+        padding: 4px;
+    }
+}
+
+.pricing-tabs::before {
+    position: absolute;
+    content: "";
+    width: calc(100% + 2px);
+    height: calc(100% + 2px);
+    background: var(--main-gradient);
+    left: -1px;
+    top: -1px;
+    border-radius: inherit;
+    z-index: -1;
+}
+
+.pricing-item {
+    border-radius: 16px;
+    background-color: #F5F7F9;
+    padding: 32px 24px;
+    background-color: hsl(var(--white));
+    box-shadow: var(--box-shadow);
+    transition: 0.2s linear;
+}
+
+.pricing-item:hover {
+    background-color: hsl(var(--black));
+}
+
+.pricing-item:hover .pricing-item__top::before {
+    background-color: hsl(var(--static-white)/0.3);
+}
+
+.pricing-item:hover .pricing-item__title {
+    color: hsl(var(--static-white));
+}
+
+.pricing-item:hover .pricing-item__price {
+    color: hsl(var(--static-white));
+}
+
+.pricing-item:hover .pricing-item__price .text {
+    color: hsl(var(--static-white)) !important;
+}
+
+.pricing-item:hover .pricing-item__desc {
+    color: hsl(var(--static-white));
+}
+
+.pricing-item:hover .text-list__item {
+    color: hsl(var(--static-white)) !important;
+}
+
+.pricing-item:hover .btn-outline-light {
+    background: var(--main-gradient);
+    border-color: transparent !important;
+    color: hsl(var(--white)) !important;
+    transition: 0.2s linear;
+}
+
+.pricing-item:hover .btn-outline-light:hover {
+    transform: scale(1.04);
+}
+
+.pricing-item__top {
+    padding-bottom: clamp(1rem, -0.217rem + 2.536vw, 2rem);
+    margin-bottom: clamp(1rem, -0.217rem + 2.536vw, 2rem);
+    position: relative;
+}
+
+.pricing-item__top::before {
+    position: absolute;
+    content: "";
+    width: calc(100% + 48px);
+    height: 1px;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 0;
+    background-color: hsl(var(--gray-five));
+    transition: 0.2s linear;
+}
+
+.pricing-item__icon {
+    border-radius: 50%;
+    border: 1px solid hsl(var(--white-one));
+    background-color: hsl(var(--white));
+    width: 72px;
+    height: 72px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.pricing-item__title {
+    transition: 0.2s linear;
+}
+
+.pricing-item__price {
+    transition: 0.2s linear;
+}
+
+.pricing-item__desc {
+    margin-bottom: clamp(1.5rem, 0.283rem + 2.536vw, 2.5rem);
+    transition: 0.2s linear;
+}
+
+.pricing-item__lists {
+    margin-top: clamp(1.5rem, 0.283rem + 2.536vw, 2.5rem);
+}
+
+.text-list__item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+    transition: 0.2s linear;
+}
+
+.text-list__item:last-child {
+    margin-bottom: 0;
+}
+
+.text-list__item .icon {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    border: 1px solid hsl(var(--white-one));
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+}
+
+.popular-badge {
+    background-color: hsl(var(--main-two));
+    color: hsl(var(--static-black));
+    padding: 3px 16px;
+    padding-left: 28px;
+    position: relative;
+    right: -24px;
+    clip-path: polygon(0 0, 100% 0, 100% 50%, 100% 100%, 0 100%, 8% 52%);
+    font-size: 18px;
+}
+
+@media screen and (max-width: 767px) {
+    .popular-badge {
+        font-size: 13px;
+    }
+}
+/* ========================= Pricing Plan Section Css End ============================ */

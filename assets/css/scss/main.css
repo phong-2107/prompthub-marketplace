@@ -1,0 +1,92 @@
+/**
+ * DPMarket-2025 - Main CSS Import File
+ * 
+ * Cấu trúc CSS theo SMACSS/7-1 Pattern:
+ * - abstracts: Biến, classes helper, extend
+ * - base: Typography, margin, padding, reset WordPress
+ * - components: Các thành phần UI tái sử dụng
+ * - layout: Header, footer, sidebar, navigation
+ * - sections: Các section trang chủ
+ * - pages: CSS riêng cho từng trang
+ * - themes: Dark mode và các theme khác
+ */
+
+/* ============================================
+   ABSTRACTS - Biến và Classes Helper
+   ============================================ */
+@import 'abstracts/_variables.css';
+@import 'abstracts/_classes.css';
+@import 'abstracts/_extend.css';
+
+/* ============================================
+   BASE - Styles cơ bản
+   ============================================ */
+@import 'base/_wordpress.css';
+@import 'base/_typography.css';
+@import 'base/_margin.css';
+@import 'base/_padding.css';
+
+/* ============================================
+   COMPONENTS - Các thành phần UI
+   ============================================ */
+@import 'components/_accordion.css';
+@import 'components/_button.css';
+@import 'components/_form.css';
+@import 'components/_pagination.css';
+@import 'components/_tab.css';
+@import 'components/_table.css';
+@import 'components/_card.css';
+@import 'components/_preloader.css';
+
+/* ============================================
+   LAYOUT - Cấu trúc trang
+   ============================================ */
+@import 'layout/_section-heading.css';
+@import 'layout/_header.css';
+@import 'layout/_search-mobile.css';
+@import 'layout/_footer.css';
+@import 'layout/_scroll-top.css';
+@import 'layout/_sale-offer.css';
+@import 'layout/_social-icon.css';
+@import 'layout/_slick.css';
+@import 'layout/_star-rating.css';
+@import 'layout/_comment.css';
+@import 'layout/_blog-sidebar.css';
+@import 'layout/_dashboard-sidebar.css';
+
+/* ============================================
+   SECTIONS - Các section trang chủ
+   ============================================ */
+@import 'sections/_banner.css';
+@import 'sections/_popular.css';
+@import 'sections/_product.css';
+@import 'sections/_author.css';
+@import 'sections/_performance-blog.css';
+@import 'sections/_seller-brand.css';
+@import 'sections/_banner-two.css';
+@import 'sections/_popular-item.css';
+@import 'sections/_contributor-service.css';
+@import 'sections/_testimonial.css';
+@import 'sections/_pricing.css';
+@import 'sections/_article.css';
+@import 'sections/_resource-newsletter.css';
+@import 'sections/_breadcrumb.css';
+
+/* ============================================
+   PAGES - CSS riêng cho từng trang
+   ============================================ */
+@import 'pages/_all-product.css';
+@import 'pages/_product-details.css';
+@import 'pages/_profile.css';
+@import 'pages/_earning.css';
+@import 'pages/_cart.css';
+@import 'pages/_blog-details.css';
+@import 'pages/_account.css';
+@import 'pages/_dashboard.css';
+@import 'pages/_elements.css';
+@import 'pages/_index-three.css';
+
+/* ============================================
+   THEMES - Dark mode và themes
+   ============================================ */
+@import 'themes/_dark-mode.css';

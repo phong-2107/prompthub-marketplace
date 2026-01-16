@@ -1,0 +1,360 @@
+/* ===================== Dashboard Start ======================= */
+.dashboard-nav, .dashboard-body__content, .dashboard-footer {
+    padding-left: 32px;
+    padding-right: 32px;
+}
+
+@media screen and (max-width: 1399px) {
+    .dashboard-nav, .dashboard-body__content, .dashboard-footer {
+        padding-left: 24px;
+        padding-right: 24px;
+    }
+}
+
+.dashboard-footer {
+    margin-top: auto !important;
+}
+
+.dashboard {
+    background-color: hsl(var(--gray-seven));
+}
+
+.dashboard-body {
+    width: calc(100% - 312px);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+@media screen and (max-width: 991px) {
+    .dashboard-body {
+        width: 100%;
+    }
+}
+
+.dashboard-body__content {
+    margin: 32px 0;
+}
+
+.dashboard-body__item {
+    margin-bottom: 32px;
+}
+
+.dashboard-body__item:last-child {
+    margin-bottom: 0;
+}
+
+/* Sidebar Collapse */
+@media (min-width: 992px) {
+    .dashboard.active .dashboard-sidebar {
+        width: auto;
+    }
+
+    .dashboard.active .dashboard-sidebar .logo {
+        display: none;
+    }
+
+    .dashboard.active .dashboard-sidebar .logo.favicon {
+        display: block;
+    }
+
+    .dashboard.active .dashboard-sidebar .sidebar-list__link {
+        width: 44px;
+        height: 44px;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .dashboard.active .dashboard-sidebar .sidebar-list__link .text {
+        display: none;
+    }
+
+    .dashboard.active .bar-icon {
+        display: none;
+    }
+
+    .dashboard.active .arrow-icon {
+        display: block;
+    }
+}
+/* Sidebar Collapse End */
+/* Dashboard Widget Css Start */
+.dashboard-widget {
+    padding: 16px 24px;
+    border-radius: 8px;
+    background-color: transparent;
+    position: relative;
+    z-index: 1;
+    transition: 0.2s linear;
+}
+
+@media screen and (max-width: 1399px) {
+    .dashboard-widget {
+        padding: 16px;
+    }
+}
+
+.dashboard-widget:hover {
+    box-shadow: 0px 20px 30px 0px rgba(197, 196, 201, 0.25);
+    background: var(--main-gradient);
+}
+
+.dashboard-widget:hover .dashboard-widget__shape.one {
+    visibility: hidden;
+    opacity: 0;
+}
+
+.dashboard-widget:hover .dashboard-widget__shape.two {
+    visibility: visible;
+    opacity: 1;
+}
+
+.dashboard-widget::before {
+    position: absolute;
+    content: "";
+    width: calc(100% - 2px);
+    height: calc(100% - 2px);
+    background: hsl(var(--white));
+    left: 1px;
+    top: 1px;
+    border-radius: inherit;
+    z-index: -1;
+    transition: 0.2s linear;
+}
+
+.dashboard-widget__shape {
+    position: absolute;
+    right: 0;
+    top: 16px;
+    transition: 0.2s linear;
+}
+
+.dashboard-widget__shape.two {
+    visibility: hidden;
+    opacity: 0;
+}
+
+.dashboard-widget__icon {
+    width: 72px;
+    height: 72px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background-color: hsl(var(--gray-seven));
+}
+
+@media (min-width: 992px) and (max-width: 1399px) {
+    .dashboard-widget__icon {
+        width: 60px;
+        height: 60px;
+    }
+}
+
+@media (min-width: 992px) and (max-width: 1399px) {
+    .dashboard-widget__number {
+        font-size: 22px;
+    }
+}
+/* Dashboard Widget Css End */
+/* Dashboard Card Css Start */
+.dashboard-card {
+    background-color: hsl(var(--white));
+    border-radius: 16px;
+    border: 1px solid hsl(var(--gray-five));
+    height: 100%;
+}
+
+.dashboard-card__header {
+    padding: 24px;
+    border-bottom: 1px solid hsl(var(--gray-five));
+}
+
+.dashboard-card .select-has-icon::before {
+    right: 12px;
+}
+
+.dashboard-card .select-sm {
+    background-color: hsl(var(--gray-seven)) !important;
+    border-color: hsl(var(--gray-five));
+    padding: 6px 12px;
+    width: auto;
+}
+
+/* Chart Css Start */
+.apexcharts-toolbar {
+    display: none !important;
+}
+
+.apexcharts-legend {
+    display: none !important;
+}
+
+/* Chart Css End */
+.country-list__item {
+    padding: 10px 24px;
+    border-bottom: 1px dashed hsl(var(--gray-five));
+}
+
+.country-list__item:last-child {
+    border-bottom: 0;
+}
+
+.country-list__flag {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+/* Dashboard Card Css End */
+/* ===================== Dashboard End ======================= */
+/* ======================== Dashboard Profile Css Start ========================= */
+.profile-info {
+    padding: 32px 16px;
+    background-color: hsl(var(--white));
+    border: 1px solid hsl(var(--gray-five));
+    border-radius: 8px;
+}
+
+@media screen and (max-width: 1199px) {
+    .profile-info {
+        padding: 24px 16px;
+    }
+}
+/* Cover Photo Upload Css Start */
+.cover-photo .avatar-upload {
+    display: block;
+}
+
+.cover-photo .avatar-upload .avatar-edit {
+    top: 38px;
+    bottom: auto;
+    right: 32px;
+}
+
+.cover-photo .avatar-upload .avatar-edit input + label {
+    width: unset;
+    height: unset;
+    border-radius: 8px;
+    padding: 8px 12px;
+    color: hsl(var(--white));
+    gap: 8px;
+    border: 0;
+    background: hsl(var(--black)/0.5);
+    backdrop-filter: blur(8px);
+    font-weight: 300;
+}
+
+.cover-photo .avatar-upload .avatar-edit input + label:hover {
+    background: hsl(var(--black)/0.8);
+}
+
+.cover-photo .avatar-upload .avatar-preview {
+    height: 300px;
+    width: 100%;
+    border-radius: 0;
+    background-image: url(../images/thumbs/cover-photo.png);
+}
+
+@media screen and (max-width: 991px) {
+    .cover-photo .avatar-upload .avatar-preview {
+        height: 250px;
+    }
+}
+
+.cover-photo .avatar-upload .avatar-preview > div {
+    border-radius: 0;
+}
+
+/* Cover Photo Upload Css End */
+/* Image Upload Css Start */
+.avatar-upload {
+    position: relative;
+    margin: 0 auto;
+    display: inline-block;
+}
+
+.avatar-upload .avatar-edit {
+    position: absolute;
+    right: 8px;
+    z-index: 1;
+    bottom: 0;
+}
+
+.avatar-upload .avatar-edit input {
+    display: none;
+}
+
+.avatar-upload .avatar-edit input + label {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    margin-bottom: 0;
+    border-radius: 100%;
+    background: var(--main-gradient);
+    border: 1px solid hsl(var(--white));
+    cursor: pointer;
+    font-weight: normal;
+    transition: all 0.2s ease-in-out;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.avatar-upload .avatar-preview {
+    width: 116px;
+    height: 116px;
+    position: relative;
+    border-radius: 100%;
+    background-image: url(../images/thumbs/profile-info-img.png);
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+.avatar-upload .avatar-preview > div {
+    width: 100%;
+    height: 100%;
+    border-radius: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+/* Image Upload Css End */
+.profile-info-list__item {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 8px;
+    margin-bottom: 16px;
+    padding-bottom: 16px;
+    border-bottom: 1px dashed hsl(var(--gray-four));
+}
+
+.profile-info-list__item:last-child {
+    padding-bottom: 0;
+    margin-bottom: 0;
+    border-bottom: 0;
+}
+
+@media screen and (max-width: 1599px) {
+    .profile-info-list__item {
+        font-size: 0.875rem;
+    }
+}
+
+@media screen and (max-width: 424px) {
+    .profile-info-list__item {
+        font-size: 0.8125rem;
+    }
+}
+
+.profile-info-content {
+    padding: 24px;
+}
+
+/* ======================== Dashboard Profile Css End ========================= */

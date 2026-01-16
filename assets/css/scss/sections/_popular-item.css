@@ -1,0 +1,112 @@
+/* ============================ Popular Item Section Start =========================== */
+.popular-item-card-section {
+    position: relative;
+    z-index: 1;
+}
+
+.popular-item-card-section::before {
+    position: absolute;
+    content: "";
+    width: 675px;
+    height: 552px;
+    background: linear-gradient(152deg, rgba(246, 246, 246, 0.2) 17.12%, rgba(94, 53, 242, 0.2) 105.91%);
+    filter: blur(100px);
+    left: 0;
+    bottom: 200px;
+    z-index: -1;
+}
+
+.popular-item-card {
+    background-color: hsl(var(--white));
+    padding: 20px;
+    box-shadow: var(--box-shadow);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0px 5px 20px 0px rgba(189, 190, 204, 0.4);
+}
+
+.popular-item-card:hover {
+    box-shadow: 0px 20px 30px 0px rgba(197, 196, 201, 0.25);
+}
+
+.popular-item-card:hover .product-item__bottom {
+    visibility: visible;
+    opacity: 1;
+}
+
+.popular-item-card:hover .popular-item-card__thumb::before {
+    height: 100%;
+    visibility: visible;
+    opacity: 1;
+    z-index: 1;
+}
+
+.popular-item-card:hover .popular-item-card__thumb img {
+    transform: scale(1.1);
+}
+
+.popular-item-card__thumb {
+    border-radius: 8px;
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
+}
+
+.popular-item-card__thumb::before {
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 0%;
+    left: 0;
+    bottom: 0;
+    border-radius: 8px;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(0, 4, 37, 0.5) 69.5%, rgba(0, 4, 37, 0.5) 100%);
+    pointer-events: none;
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.2s linear;
+}
+
+.popular-item-card__thumb img {
+    transition: 0.2s linear;
+}
+
+.popular-item-card .product-item__bottom {
+    position: absolute;
+    bottom: 0;
+    color: hsl(var(--white));
+    z-index: 2;
+    width: 100%;
+    padding: 16px;
+    padding-top: 0;
+    margin-top: 0;
+    border-top: 0;
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.2s linear;
+}
+
+.popular-item-card .product-item__author {
+    color: hsl(var(--white));
+}
+
+.popular-item-card__content {
+    margin-top: 24px;
+}
+
+.popular-item-card__title {
+    text-transform: capitalize;
+}
+
+.popular-item-card__title .link {
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.btn-link:hover {
+    transform: scale(1.2);
+}
+
+/* ============================ Popular Item Section End =========================== */

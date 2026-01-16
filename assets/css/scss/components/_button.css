@@ -1,0 +1,273 @@
+/* ================================= Button Css Start =========================== */
+.btn-check:checked + .btn, .btn.active, .btn.show, .btn:first-child:active, :not(.btn-check) + .btn:active {
+    color: none;
+    background-color: none;
+    border-color: none;
+}
+
+.btn {
+    position: relative;
+    border-radius: 8px;
+    border: 1px solid transparent;
+    font-weight: 400;
+    font-family: var(--body-font);
+    color: hsl(var(--static-white)) !important;
+    z-index: 1;
+    font-size: 0.875rem;
+    line-height: 1;
+    text-transform: capitalize;
+    padding: 14px 16px;
+}
+
+.btn:hover, .btn:focus, .btn:focus-visible {
+    box-shadow: none !important;
+}
+
+@media screen and (max-width: 991px) {
+    .btn {
+        padding: 12px 16px;
+    }
+}
+
+.btn-sm {
+    padding: 11px 16px !important;
+    font-size: 0.875rem;
+}
+
+@media screen and (max-width: 424px) {
+    .btn-sm {
+        padding: 10px !important;
+        font-size: 12px;
+    }
+}
+
+.btn-md {
+    padding: 17px 16px;
+}
+
+@media screen and (max-width: 424px) {
+    .btn-md {
+        padding: 10px;
+        font-size: 12px;
+    }
+}
+
+.btn-lg {
+    padding: 22px 40px;
+    font-size: 1rem;
+}
+
+@media screen and (max-width: 991px) {
+    .btn-lg {
+        padding: 17px 32px;
+    }
+}
+
+.btn-lg-icon {
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@media screen and (max-width: 991px) {
+    .btn-lg-icon {
+        height: 50px;
+    }
+}
+
+.btn-xl {
+    padding: 20px 64px;
+    font-size: 1rem;
+}
+
+@media screen and (max-width: 991px) {
+    .btn-xl {
+        padding: 15px 36px;
+    }
+}
+
+.btn-icon {
+    width: 56px;
+    height: 56px;
+    background-color: hsl(var(--white)) !important;
+    padding: 0;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.2s linear;
+    font-size: 1.25rem;
+}
+
+@media screen and (max-width: 767px) {
+    .btn-icon {
+        width: 44px;
+        height: 44px;
+    }
+}
+
+.btn-icon--sm {
+    width: 44px;
+    height: 44px;
+}
+
+@media screen and (max-width: 767px) {
+    .btn-icon--sm {
+        width: 40px;
+        height: 40px;
+    }
+}
+
+.btn-icon:hover {
+    transform: scale(1.04);
+}
+
+.btn .icon-right {
+    margin-left: 8px;
+    font-size: 1rem;
+}
+
+.btn .icon-left {
+    margin-right: 8px;
+    font-size: 1rem;
+}
+
+.btn:active {
+    transform: scale(1.01);
+}
+
+.btn-main {
+    background-color: hsl(var(--main)) !important;
+    border: transparent !important;
+    z-index: 1;
+}
+
+.btn-main::before, .btn-main::after {
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    border-radius: inherit;
+    background: var(--main-gradient);
+    z-index: -1;
+    transition: 0.2s linear;
+}
+
+.btn-main::after {
+    background: var(--main-gradient-rev);
+    visibility: hidden;
+    opacity: 0;
+}
+
+.btn-main:hover::after {
+    visibility: visible;
+    opacity: 1;
+}
+
+.btn-outline-main {
+    background-color: transparent !important;
+    border-color: hsl(var(--main)) !important;
+    color: hsl(var(--main)) !important;
+}
+
+.btn-outline-main:hover {
+    background-color: hsl(var(--main)/0.15) !important;
+    border-color: hsl(var(--main)/0.4) !important;
+}
+
+.btn-white {
+    background-color: hsl(var(--white)) !important;
+    border-color: hsl(var(--white)) !important;
+    color: hsl(var(--black)) !important;
+}
+
+.btn-white:hover {
+    background-color: hsl(var(--main)) !important;
+    border-color: hsl(var(--main)) !important;
+    color: hsl(var(--static-white)) !important;
+}
+
+.btn-light {
+    background-color: hsl(var(--white-one)) !important;
+    border-color: hsl(var(--white-one)) !important;
+    color: hsl(var(--black)) !important;
+}
+
+.btn-light:hover {
+    background-color: hsl(var(--main)) !important;
+    border-color: hsl(var(--main)) !important;
+    color: hsl(var(--white)) !important;
+}
+
+.btn-outline-light {
+    background-color: transparent !important;
+    border-color: hsl(var(--white-one)) !important;
+    color: hsl(var(--black)) !important;
+    font-weight: 500;
+}
+
+.btn-outline-light:hover {
+    background-color: hsl(var(--black)) !important;
+    border-color: hsl(var(--black)) !important;
+    color: hsl(var(--white)) !important;
+}
+
+.btn-black {
+    background-color: hsl(var(--black)) !important;
+    border-color: hsl(var(--black)) !important;
+    border-width: 2px;
+    color: hsl(var(--white)) !important;
+}
+
+.btn-black:hover {
+    background-color: transparent !important;
+    border-color: hsl(var(--black)) !important;
+    color: hsl(var(--black)) !important;
+}
+
+.btn-outline-black {
+    background-color: transparent !important;
+    border-color: hsl(var(--black)) !important;
+    border-width: 2px;
+    color: hsl(var(--black)) !important;
+    font-weight: 600;
+}
+
+.btn-outline-black:hover {
+    background-color: hsl(var(--black)) !important;
+    border-color: hsl(var(--black)) !important;
+    color: hsl(var(--white)) !important;
+}
+
+.btn-static-black {
+    background-color: hsl(var(--static-black)) !important;
+    border-color: hsl(var(--static-black)) !important;
+    border-width: 2px;
+    color: hsl(var(--static-white)) !important;
+}
+
+.btn-static-black:hover {
+    background-color: transparent !important;
+    border-color: hsl(var(--static-black)) !important;
+    color: hsl(var(--static-black)) !important;
+    font-weight: 600 !important;
+}
+
+.btn-static-outline-black {
+    background-color: transparent !important;
+    border-color: hsl(var(--static-black)) !important;
+    border-width: 2px;
+    color: hsl(var(--static-black)) !important;
+    font-weight: 600;
+}
+
+.btn-static-outline-black:hover {
+    background-color: hsl(var(--static-black)) !important;
+    border-color: hsl(var(--static-black)) !important;
+    color: hsl(var(--static-white)) !important;
+}
+
+/* ================================= Button Css End =========================== */

@@ -1,0 +1,113 @@
+/* ============================== Banner Two Css Start =========================== */
+.banner-two {
+    background-color: hsl(var(--gray-seven));
+    padding: 160px 0;
+    position: relative;
+}
+
+@media screen and (max-width: 1199px) {
+    .banner-two {
+        padding: 120px 0;
+    }
+}
+
+@media screen and (max-width: 991px) {
+    .banner-two {
+        padding: 100px 0;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .banner-two {
+        padding: 80px 0;
+    }
+}
+
+.banner-two__content {
+    max-width: 880px;
+    margin: 0 auto;
+}
+
+@media (min-width: 992px) and (max-width: 1299px) {
+    .banner-two__title {
+        font-size: 60px;
+    }
+}
+
+.banner-two__desc {
+    margin-bottom: 32px;
+    max-width: 590px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@media screen and (max-width: 1199px) {
+    .banner-two__desc {
+        margin-bottom: 24px;
+    }
+}
+
+.popular-search {
+    margin-top: clamp(1.5rem, -1.543rem + 6.339vw, 4rem);
+}
+
+.search-list {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.search-list__link {
+    padding: 3px 10px;
+    border-radius: 50px;
+    border: 1px solid hsl(var(--border-color));
+    outline: 1px solid transparent;
+}
+
+.search-list__link:hover {
+    color: hsl(var(--main)) !important;
+    font-weight: 600;
+    border-color: hsl(var(--main));
+    background-color: hsl(var(--main)/0.08);
+    outline-color: hsl(var(--main));
+}
+
+/* Statistics */
+.statistics-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 36px;
+}
+
+@media screen and (max-width: 1399px) {
+    .statistics-wrapper {
+        display: inline-grid;
+        grid-template-columns: 1fr 1fr;
+        width: 100%;
+        gap: 24px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .statistics-wrapper {
+        gap: 14px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .statistics-wrapper.style-right .statistics:nth-child(1) {
+        margin-top: 96px;
+    }
+}
+
+.statistics-wrapper.style-right .statistics:nth-child(2) {
+    margin-top: 0px;
+}
+
+@media (min-width: 1200px) {
+    .statistics-wrapper .statistics:nth-child(2) {
+        margin-top: 96px;
+    }
+}
+/* ============================== Banner Two Css End =========================== */

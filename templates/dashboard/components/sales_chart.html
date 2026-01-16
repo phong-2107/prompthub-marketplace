@@ -1,0 +1,17 @@
+{% load static %}
+<!-- Sales History Chart -->
+<div class="dashboard-card">
+    <div class="dashboard-card__header flx-between gap-2">
+        <h6 class="dashboard-card__title mb-0">{{ title }}</h6>
+        <div class="select-has-icon d-inline-block">
+            <select class="select common-input select-sm" id="chart-period">
+                <option value="monthly" {% if period == 'monthly' %}selected{% endif %}>Monthly</option>
+                <option value="daily" {% if period == 'daily' %}selected{% endif %}>Daily</option>
+                <option value="yearly" {% if period == 'yearly' %}selected{% endif %}>Yearly</option>
+            </select>
+        </div>
+    </div>
+    <div class="dashboard-card__chart">
+        <div id="chart"></div>
+    </div>  
+</div>

@@ -1,0 +1,16 @@
+{% load static %}
+<!-- Dashboard Widget Card -->
+<div class="dashboard-widget">
+    <img src="{% static 'assets/images/shapes/widget-shape1.png' %}" alt="" class="dashboard-widget__shape one">
+    <img src="{% static 'assets/images/shapes/widget-shape2.png' %}" alt="" class="dashboard-widget__shape two">
+    <span class="dashboard-widget__icon">
+        <img src="{% static icon %}" alt="">
+    </span>
+    <div class="dashboard-widget__content flx-between gap-1 align-items-end">
+        <div>
+            <h4 class="dashboard-widget__number mb-1 mt-3">{{ number }}</h4>
+            <span class="dashboard-widget__text font-14">{{ title }}</span>
+        </div>
+        <img src="{% static 'assets/images/icons/chart-icon.svg' %}" alt="">
+    </div>
+</div>

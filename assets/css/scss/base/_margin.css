@@ -1,0 +1,175 @@
+/* ================================= Margin Css Start =========================== */
+.mt--100 {
+    margin-top: -100px !important;
+}
+
+.mt--24 {
+    margin-top: -24px !important;
+}
+
+.mb-64 {
+    margin-bottom: clamp(2rem, -0.434rem + 5.071vw, 4rem) !important;
+}
+
+.mt-64 {
+    margin-top: clamp(2rem, -0.434rem + 5.071vw, 4rem) !important;
+}
+
+.mt-48 {
+    margin-top: clamp(1.5rem, -0.326rem + 3.803vw, 3rem) !important;
+}
+
+.mb-48 {
+    margin-bottom: clamp(1.5rem, -0.326rem + 3.803vw, 3rem) !important;
+}
+
+.mt-40 {
+    margin-top: clamp(1.5rem, 0.283rem + 2.536vw, 2.5rem) !important;
+}
+
+.mb-40 {
+    margin-bottom: clamp(1.5rem, 0.283rem + 2.536vw, 2.5rem) !important;
+}
+
+.mt-32 {
+    margin-top: 32px !important;
+}
+
+@media screen and (max-width: 1199px) {
+    .mt-32 {
+        margin-top: 20px;
+    }
+}
+
+.mb-32 {
+    margin-bottom: 32px !important;
+}
+
+@media screen and (max-width: 1199px) {
+    .mb-32 {
+        margin-bottom: 20px;
+    }
+}
+
+.mt-24 {
+    margin-top: 24px !important;
+}
+
+@media screen and (max-width: 1199px) {
+    .mt-24 {
+        margin-top: 16px;
+    }
+}
+
+.mb-24 {
+    margin-bottom: 24px !important;
+}
+
+@media screen and (max-width: 1199px) {
+    .mb-24 {
+        margin-bottom: 16px;
+    }
+}
+
+.margin-y-120 {
+    margin-top: 60px;
+    margin-bottom: 60px;
+}
+
+@media (min-width: 576px) {
+    .margin-y-120 {
+        margin-top: 80px;
+        margin-bottom: 80px;
+    }
+}
+
+@media (min-width: 992px) {
+    .margin-y-120 {
+        margin-top: 120px;
+        margin-bottom: 120px;
+    }
+}
+
+.margin-t-120 {
+    margin-top: 60px;
+}
+
+@media (min-width: 576px) {
+    .margin-t-120 {
+        margin-top: 80px;
+    }
+}
+
+@media (min-width: 992px) {
+    .margin-t-120 {
+        margin-top: 120px;
+    }
+}
+
+.margin-b-120 {
+    margin-bottom: 60px;
+}
+
+@media (min-width: 576px) {
+    .margin-b-120 {
+        margin-bottom: 80px;
+    }
+}
+
+@media (min-width: 992px) {
+    .margin-b-120 {
+        margin-bottom: 120px;
+    }
+}
+
+.margin-y-60 {
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+@media (min-width: 576px) {
+    .margin-y-60 {
+        margin-top: 40px;
+        margin-bottom: 40px;
+    }
+}
+
+@media (min-width: 992px) {
+    .margin-y-60 {
+        margin-top: 60px;
+        margin-bottom: 60px;
+    }
+}
+
+.margin-t-60 {
+    margin-top: 30px;
+}
+
+@media (min-width: 576px) {
+    .margin-t-60 {
+        margin-top: 40px;
+    }
+}
+
+@media (min-width: 992px) {
+    .margin-t-60 {
+        margin-top: 60px;
+    }
+}
+
+.margin-b-60 {
+    margin-bottom: 30px;
+}
+
+@media (min-width: 576px) {
+    .margin-b-60 {
+        margin-bottom: 40px;
+    }
+}
+
+@media (min-width: 992px) {
+    .margin-b-60 {
+        margin-bottom: 60px;
+    }
+}
+/* ================================= Margin Css End =========================== */

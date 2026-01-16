@@ -1,0 +1,128 @@
+/* ======================= To Featured Author Css Start =============================== */
+.top-author .spider-net {
+    left: -18% !important;
+}
+
+.follow-btn.active {
+    background-color: hsl(var(--main)) !important;
+    color: hsl(var(--static-white)) !important;
+}
+
+@media (min-width: 575px) {
+    .circle-content {
+        margin-left: 80px;
+    }
+}
+/* text Circle Rotation */
+.circle {
+    position: relative;
+    margin-bottom: 24px;
+    width: 158px;
+    height: 158px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: hsl(var(--white)/0.5);
+    backdrop-filter: blur(6px);
+    z-index: 21;
+    border: 1px solid hsl(var(--white));
+}
+
+@media (min-width: 575px) {
+    .circle {
+        top: 64px;
+        left: -80px;
+        position: absolute;
+    }
+}
+
+.circle.style-two {
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    margin-bottom: 0;
+    position: absolute !important;
+}
+
+@media screen and (max-width: 575px) {
+    .circle.style-two {
+        width: 120px;
+        height: 120px;
+    }
+}
+
+.circle.style-two .circle__text span {
+    transform-origin: 0 76px;
+}
+
+@media screen and (max-width: 575px) {
+    .circle.style-two .circle__text span {
+        font-size: 14px;
+    }
+}
+
+@media screen and (max-width: 575px) {
+    .circle.style-two .circle__text span {
+        transform-origin: 0 58px;
+    }
+}
+
+.circle.style-two .circle__badge {
+    border-color: hsl(var(--white));
+}
+
+.circle.static-circle {
+    border-color: hsl(var(--static-white));
+    border-color: hsl(var(--static-white));
+    background-color: hsl(var(--static-white)/0.5);
+}
+
+.circle.static-circle .circle__badge {
+    border-color: hsl(var(--static-white));
+}
+
+.circle.static-circle .circle__text {
+    color: hsl(var(--static-black)) !important;
+}
+
+.circle.static-circle .circle__text span {
+    color: hsl(var(--static-black));
+}
+
+.circle__badge {
+    border: 1px solid hsl(var(--main));
+    width: 74px;
+    height: 74px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: inherit;
+}
+
+.circle__text {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    color: hsl(var(--heading-color));
+    font-size: 1rem;
+    animation: textRotation 8s linear infinite;
+}
+
+.circle__text span {
+    position: absolute;
+    left: 50%;
+    font-size: 1rem;
+    font-family: "inter";
+    transform-origin: 0 78px;
+    color: hsl(var(--heading-color));
+    font-weight: 500;
+}
+
+@keyframes textRotation {
+    to {
+        transform: rotate(360deg);
+    }
+}
+/* text Circle Rotation */
+/* ======================= To Featured Author Css End =============================== */

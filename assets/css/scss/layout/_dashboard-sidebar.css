@@ -1,0 +1,261 @@
+/* ===================== Dashboard Sidebar Start ======================= */
+.dashboard-sidebar {
+    padding: 32px;
+    background-color: hsl(var(--white));
+    border-right: 1px solid hsl(var(--gray-five));
+    transition: 0.2s linear;
+    width: 312px;
+    height: 100vh;
+    overflow-y: auto;
+    position: sticky;
+    top: 0;
+  /* width */
+  /* Track */
+  /* Handle */
+  /* Handle on hover */
+}
+
+.dashboard-sidebar::-webkit-scrollbar {
+    width: 6px;
+}
+
+.dashboard-sidebar::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.dashboard-sidebar::-webkit-scrollbar-thumb {
+    background: #e8e8e8;
+    border-radius: 10px;
+}
+
+.dashboard-sidebar::-webkit-scrollbar-thumb:hover {
+    background: #d1d1d1;
+}
+
+@media screen and (max-width: 991px) {
+    .dashboard-sidebar.active {
+        transform: translateX(0);
+    }
+}
+
+@media screen and (max-width: 1399px) {
+    .dashboard-sidebar {
+        padding: 24px;
+    }
+}
+
+@media screen and (max-width: 991px) {
+    .dashboard-sidebar {
+        position: fixed;
+        left: 0;
+        top: 0;
+        z-index: 99;
+        transform: translateX(-100%);
+    }
+}
+
+.dashboard-sidebar__close {
+    position: absolute;
+    right: 4px;
+    top: 4px;
+    font-size: 20px;
+}
+
+.dashboard-sidebar .logo img {
+    max-width: 166px !important;
+}
+
+.dashboard-sidebar .logo.favicon {
+    display: none;
+}
+
+.dashboard-sidebar .logo.favicon img {
+    max-width: 44px;
+}
+
+/* Sidebar Menu List Css Start */
+.sidebar-list__item {
+    margin-bottom: 8px;
+}
+
+.sidebar-list__item.activePage .sidebar-list__link, .sidebar-list__item:hover .sidebar-list__link {
+    color: hsl(var(--heading-color));
+    background-color: hsl(var(--gray-seven));
+}
+
+.sidebar-list__item.activePage .sidebar-list__icon .icon, .sidebar-list__item:hover .sidebar-list__icon .icon {
+    visibility: hidden;
+    opacity: 0;
+}
+
+.sidebar-list__item.activePage .sidebar-list__icon .icon-active, .sidebar-list__item:hover .sidebar-list__icon .icon-active {
+    visibility: visible;
+    opacity: 1;
+}
+
+.sidebar-list__item:last-child {
+    margin-bottom: 0;
+}
+
+.sidebar-list__link {
+    width: 100%;
+    color: hsl(var(--body-color));
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 12px;
+    border-radius: 8px;
+    transition: 0s;
+}
+
+.sidebar-list__icon {
+    width: 24px;
+    height: auto;
+    position: relative;
+}
+
+.sidebar-list__icon .icon {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.sidebar-list__icon .icon-active {
+    visibility: hidden;
+    opacity: 0;
+}
+
+/* Sidebar Menu List Css End */
+/* ===================== Dashboard Sidebar End ======================= */
+/* ====================== Dashboard nav Css Start =================== */
+.dashboard-nav {
+    padding-top: 24px;
+    padding-bottom: 24px;
+}
+
+@media screen and (max-width: 1199px) {
+    .dashboard-nav {
+        padding-top: 16px;
+        padding-bottom: 16px;
+    }
+}
+
+@media screen and (max-width: 991px) {
+    .dashboard-nav {
+        padding-top: 12px;
+        padding-bottom: 12px;
+    }
+}
+
+.icon-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    transition: 0.2s linear;
+}
+
+.icon-btn:hover {
+    transform: scale(1.1);
+}
+
+.bar-icon {
+    font-size: 24px;
+}
+
+.arrow-icon {
+    display: none;
+}
+
+.search-input {
+    position: relative;
+}
+
+@media (min-width: 1299px) {
+    .search-input {
+        min-width: 415px;
+    }
+}
+
+@media screen and (max-width: 1199px) {
+    .search-input {
+        max-width: 200px;
+    }
+}
+
+.search-input .icon {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.search-input input {
+    padding-left: 42px;
+}
+
+/* User Profile Css Start */
+.user-profile {
+    position: relative;
+    text-align: center;
+}
+
+.user-profile__thumb {
+    width: 40px;
+    height: 40px;
+    overflow: hidden;
+    border-radius: 50%;
+}
+
+.user-profile__button {
+    position: relative;
+}
+
+.user-profile .user-profile-dropdown {
+    border-radius: 8px;
+    transition: 0.2s linear;
+    background-color: hsl(var(--white));
+    box-shadow: var(--box-shadow);
+    width: 200px;
+    position: absolute;
+    right: 0;
+    z-index: 9;
+    top: 100%;
+    margin-top: 15px;
+    padding: 15px;
+    transform: scale(0.9);
+    visibility: hidden;
+    opacity: 0;
+    border: 1px solid hsl(var(--gray-five));
+}
+
+.user-profile .user-profile-dropdown::before {
+    position: absolute;
+    content: "";
+    width: 14px;
+    height: 14px;
+    top: -7px;
+    right: 16px;
+    transform: rotate(45deg);
+    border: 1px solid hsl(var(--gray-five));
+    background-color: hsl(var(--white));
+    border-radius: 3px;
+    border-bottom: 0;
+    border-right: 0;
+}
+
+@media screen and (max-width: 991px) {
+    .user-profile .user-profile-dropdown {
+        transform: unset;
+        top: 43px;
+    }
+}
+
+.user-profile .user-profile-dropdown.show {
+    visibility: visible;
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* User Profile Css End */
+/* ====================== Dashboard nav Css End =================== */

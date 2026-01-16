@@ -1,0 +1,225 @@
+/* ======================= Featured Contributor Section Css Start ================== */
+.featured-contributor::before {
+    position: absolute;
+    content: "";
+    background: linear-gradient(152deg, rgba(246, 246, 246, 0.2) 17.12%, rgba(94, 53, 242, 0.2) 105.91%);
+    filter: blur(100px);
+    width: 752px;
+    height: 614px;
+    right: -224px;
+    bottom: 70px;
+}
+
+.contributor-item {
+    background-color: hsl(var(--black));
+    border-radius: 16px;
+    padding: 8px;
+    overflow: hidden;
+    position: relative;
+}
+
+.contributor-item:hover {
+    box-shadow: 0px 20px 30px 0px rgba(197, 196, 201, 0.25);
+}
+
+.contributor-item:hover .contributor-item__thumb::before, .contributor-item:hover .more-item__item .link::before, .contributor-item:hover .follower-item__item .link::before, .more-item__item .contributor-item:hover .link::before, .follower-item__item .contributor-item:hover .link::before {
+    height: 100%;
+    visibility: visible;
+    opacity: 1;
+    z-index: 1;
+}
+
+.contributor-item:hover .contributor-item__thumb img, .contributor-item:hover .more-item__item .link img, .contributor-item:hover .follower-item__item .link img, .more-item__item .contributor-item:hover .link img, .follower-item__item .contributor-item:hover .link img {
+    transform: scale(1.1);
+}
+
+.contributor-item:hover .contributor-item__link {
+    visibility: visible;
+    opacity: 1;
+}
+
+.contributor-item__thumb, .more-item__item .link, .follower-item__item .link {
+    border-radius: 16px;
+    overflow: hidden;
+    position: relative;
+}
+
+.contributor-item__thumb::before, .more-item__item .link::before, .follower-item__item .link::before {
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 0%;
+    left: 0;
+    bottom: 0;
+    border-radius: 8px;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(0, 4, 37, 0.5) 69.5%, rgba(0, 4, 37, 0.5) 100%);
+    pointer-events: none;
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.2s linear;
+}
+
+.contributor-item__thumb img, .more-item__item .link img, .follower-item__item .link img {
+    transition: 0.2s linear;
+}
+
+.contributor-item__link {
+    position: absolute;
+    z-index: 1;
+    right: 16px;
+    bottom: 16px;
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.2s linear;
+}
+
+.contributor-item__link:hover {
+    transform: scale(1.2);
+}
+
+.contributor-item__badge {
+    position: absolute;
+    right: 24px;
+    top: 0;
+}
+
+.contributor-info {
+    padding: 12px 8px;
+    padding-bottom: 20px;
+}
+
+.contributor-info__thumb {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background-color: hsl(var(--white));
+}
+
+/* ======================= Featured Contributor Section Css Start ================== */
+/* ======================== Service Section Css Start ========================== */
+.service {
+    background-color: #F3EBFF;
+}
+
+.service-item {
+    border-radius: 16px;
+    background-color: hsl(var(--white));
+    overflow: hidden;
+    padding: 32px;
+    transition: 0.2s linear;
+    position: relative;
+    z-index: 1;
+    height: 100%;
+}
+
+.service-item:hover {
+    background-color: hsl(var(--black));
+}
+
+.service-item:hover .hover-bg {
+    visibility: visible;
+    opacity: 1;
+}
+
+.service-item:hover .service-item__title {
+    color: hsl(var(--static-white));
+}
+
+.service-item:hover .service-item__desc {
+    color: hsl(var(--static-white));
+}
+
+.service-item:hover .btn-simple {
+    color: hsl(var(--static-white));
+}
+
+@media screen and (max-width: 1199px) {
+    .service-item {
+        padding: 24px;
+    }
+}
+
+@media screen and (max-width: 991px) {
+    .service-item {
+        padding: 24px 16px;
+    }
+}
+
+.service-item__icon {
+    width: 80px;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background-color: #F5F7F9;
+}
+
+@media screen and (max-width: 575px) {
+    .service-item__icon {
+        width: 60px;
+        height: 60px;
+    }
+}
+
+.service-item__title {
+    transition: 0.2s linear;
+}
+
+.service-item__desc {
+    margin-bottom: 24px;
+    transition: 0.2s linear;
+}
+
+@media screen and (max-width: 991px) {
+    .service-item__desc {
+        margin-bottom: 16px;
+    }
+}
+
+.hover-bg-main {
+    position: relative;
+    z-index: 1;
+}
+
+.hover-bg-main:hover .hover-bg {
+    visibility: visible;
+    opacity: 1;
+}
+
+.hover-bg {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.2s linear;
+    z-index: -1;
+}
+
+.btn-simple {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: hsl(var(--heading-color));
+    font-weight: 500;
+}
+
+.btn-simple:hover {
+    color: hsl(var(--main));
+}
+
+.btn-simple:hover .icon {
+    margin-left: 8px;
+}
+
+.btn-simple .icon {
+    transition: 0.2s linear;
+}
+
+/* ======================== Service Section Css End ========================== */

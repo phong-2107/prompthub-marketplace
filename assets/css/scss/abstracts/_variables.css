@@ -1,0 +1,194 @@
+/* ========================= Variable Css Start ======================== */
+/* Font Family*/
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;family=Jost:ital,wght@0,100..900;1,100..900&amp;display=swap");
+
+:root {
+  /* Font Family Variable */
+    --heading-font: "Jost", sans-serif;
+    --body-font: "Inter", sans-serif;
+  /* Font Size Variable Start */
+    --heading-one: clamp(1.875rem, -2.0093rem + 8.3527vw, 4.25rem);
+    --heading-two: clamp(1.75rem, -0.8115rem + 5.3364vw, 3.1875rem);
+    --heading-three: clamp(1.5rem, -0.0592rem + 3.2483vw, 2.375rem);
+    --heading-four: clamp(1.375rem, 0.7068rem + 1.3921vw, 1.75rem);
+    --heading-five: clamp(1.125rem, 0.4568rem + 1.3921vw, 1.5rem);
+    --heading-six: clamp(1rem, 0.7773rem + 0.464vw, 1.125rem);
+  /* Font Size End */
+  /* Gray Color */
+    --gray-one: 0 0% 14%;
+    --gray-two: 0 0% 31%;
+    --gray-three: 0 0% 51%;
+    --gray-four: 0 0% 74%;
+    --gray-five: 252 10% 90%;
+    --gray-six: 252 10% 90%;
+    --gray-seven: 210 25% 97%;
+  /* White Color */
+    --white: 0 0% 100%;
+    --static-white: 0 0% 100%;
+    --white-one: 236 13% 77%;
+    --static-white-one: 236 13% 77%;
+  /* Light Color */
+    --light-h: 0;
+    --light-s: 1%;
+    --light-l: 53%;
+    --light: var(--light-h) var(--light-s) var(--light-l);
+  /* Black Color */
+    --black-h: 234;
+    --black-s: 100%;
+    --black-l: 7%;
+    --black: var(--black-h) var(--black-s) var(--black-l);
+  /* Black Color */
+    --static-black-h: 234;
+    --static-black-s: 100%;
+    --static-black-l: 7%;
+    --static-black: var(--static-black-h) var(--static-black-s) var(--static-black-l);
+  /* Black Two Color */
+    --black-two-h: 234;
+    --black-two-s: 69%;
+    --black-two-l: 9%;
+    --black-two: var(--black-two-h) var(--black-two-s) var(--black-two-l);
+  /* Black three Color */
+    --black-three-h: 235;
+    --black-three-s: 5%;
+    --black-three-l: 43%;
+    --black-three: var(--black-three-h) var(--black-three-s) var(--black-three-l);
+    --heading-color: var(--black);
+    --body-color: var(--black-three);
+    --body-bg: 0 0% 100%;
+    --border-color: 236 13% 77%;
+    --section-bg: 210 25% 97%;
+  /* Card box shadow */
+    --box-shadow: 0px 20px 30px 0px rgba(197, 196, 201, 0.25);
+    --box-shadow-lg: 0 1rem 3rem rgba(0,0,0,.1);
+  /* Color Variables Start */
+    --main-gradient: linear-gradient(312deg, hsl(var(--main)) 5.38%, hsl(var(--main-two)) 113.21%);
+    --main-gradient-rev: linear-gradient(312deg, hsl(var(--main-two)) 5.38%, hsl(var(--main)) 113.21%);
+    --main-gradient-two: linear-gradient(305deg, hsl(var(--main)) 0%, hsl(var(--main-three)) 100%);
+  /* ========================= Main Color ============================= */
+    --main-h: 253;
+    --main-s: 88%;
+    --main-l: 58%;
+    --main: var(--main-h) var(--main-s) var(--main-l);
+  /* Main Lighten */
+    --main-l-100: var(--main-h) calc(var(--main-s)) calc(var(--main-l) + (100% - var(--main-l)) * 0.1);
+    --main-l-200: var(--main-h) calc(var(--main-s)) calc(var(--main-l) + (100% - var(--main-l)) * 0.2);
+    --main-l-300: var(--main-h) calc(var(--main-s)) calc(var(--main-l) + (100% - var(--main-l)) * 0.3);
+    --main-l-400: var(--main-h) calc(var(--main-s)) calc(var(--main-l) + (100% - var(--main-l)) * 0.4);
+    --main-l-500: var(--main-h) calc(var(--main-s)) calc(var(--main-l) + (100% - var(--main-l)) * 0.5);
+  /* Main Darken  */
+    --main-d-100: var(--main-h) var(--main-s) calc(var(--main-l) - var(--main-l) * 0.1);
+    --main-d-200: var(--main-h) var(--main-s) calc(var(--main-l) - var(--main-l) * 0.2);
+    --main-d-300: var(--main-h) var(--main-s) calc(var(--main-l) - var(--main-l) * 0.3);
+    --main-d-400: var(--main-h) var(--main-s) calc(var(--main-l) - var(--main-l) * 0.4);
+    --main-d-500: var(--main-h) var(--main-s) calc(var(--main-l) - var(--main-l) * 0.5);
+  /* ========================= Main Color ============================= */
+  /* ========================= Main two Color ============================= */
+    --main-two-h: 184;
+    --main-two-s: 96%;
+    --main-two-l: 48%;
+    --main-two: var(--main-two-h) var(--main-two-s) var(--main-two-l);
+  /* Main-two Lighten */
+    --main-two-l-100: var(--main-two-h) calc(var(--main-two-s)) calc(var(--main-two-l) + (100% - var(--main-two-l)) * 0.1);
+    --main-two-l-200: var(--main-two-h) calc(var(--main-two-s)) calc(var(--main-two-l) + (100% - var(--main-two-l)) * 0.2);
+    --main-two-l-300: var(--main-two-h) calc(var(--main-two-s)) calc(var(--main-two-l) + (100% - var(--main-two-l)) * 0.3);
+    --main-two-l-400: var(--main-two-h) calc(var(--main-two-s)) calc(var(--main-two-l) + (100% - var(--main-two-l)) * 0.4);
+    --main-two-l-500: var(--main-two-h) calc(var(--main-two-s)) calc(var(--main-two-l) + (100% - var(--main-two-l)) * 0.5);
+  /* Main-two Darken  */
+    --main-two-d-100: var(--main-two-h) var(--main-two-s) calc(var(--main-two-l) - var(--main-two-l) * 0.1);
+    --main-two-d-200: var(--main-two-h) var(--main-two-s) calc(var(--main-two-l) - var(--main-two-l) * 0.2);
+    --main-two-d-300: var(--main-two-h) var(--main-two-s) calc(var(--main-two-l) - var(--main-two-l) * 0.3);
+    --main-two-d-400: var(--main-two-h) var(--main-two-s) calc(var(--main-two-l) - var(--main-two-l) * 0.4);
+    --main-two-d-500: var(--main-two-h) var(--main-two-s) calc(var(--main-two-l) - var(--main-two-l) * 0.5);
+  /* ========================= Main Three Color ============================= */
+  /* ========================= Main three Color ============================= */
+    --main-three-h: 306;
+    --main-three-s: 100%;
+    --main-three-l: 68%;
+    --main-three: var(--main-three-h) var(--main-three-s) var(--main-three-l);
+  /* Main-three Lighten */
+    --main-three-l-100: var(--main-three-h) calc(var(--main-three-s)) calc(var(--main-three-l) + (100% - var(--main-three-l)) * 0.1);
+    --main-three-l-200: var(--main-three-h) calc(var(--main-three-s)) calc(var(--main-three-l) + (100% - var(--main-three-l)) * 0.2);
+    --main-three-l-300: var(--main-three-h) calc(var(--main-three-s)) calc(var(--main-three-l) + (100% - var(--main-three-l)) * 0.3);
+    --main-three-l-400: var(--main-three-h) calc(var(--main-three-s)) calc(var(--main-three-l) + (100% - var(--main-three-l)) * 0.4);
+    --main-three-l-500: var(--main-three-h) calc(var(--main-three-s)) calc(var(--main-three-l) + (100% - var(--main-three-l)) * 0.5);
+  /* Main-three Darken  */
+    --main-three-d-100: var(--main-three-h) var(--main-three-s) calc(var(--main-three-l) - var(--main-three-l) * 0.1);
+    --main-three-d-200: var(--main-three-h) var(--main-three-s) calc(var(--main-three-l) - var(--main-three-l) * 0.2);
+    --main-three-d-300: var(--main-three-h) var(--main-three-s) calc(var(--main-three-l) - var(--main-three-l) * 0.3);
+    --main-three-d-400: var(--main-three-h) var(--main-three-s) calc(var(--main-three-l) - var(--main-three-l) * 0.4);
+    --main-three-d-500: var(--main-three-h) var(--main-three-s) calc(var(--main-three-l) - var(--main-three-l) * 0.5);
+  /* ========================= Main Two Color ============================= */
+  /* ========================= Info Color ============================= */
+    --info-h: 214;
+    --info-s: 84%;
+    --info-l: 56%;
+    --info: var(--info-h) var(--info-s) var(--info-l);
+  /* info Lighten */
+    --info-l-100: var(--info-h) calc(var(--info-s)) calc(var(--info-l) + (100% - var(--info-l)) * 0.1);
+    --info-l-200: var(--info-h) calc(var(--info-s)) calc(var(--info-l) + (100% - var(--info-l)) * 0.2);
+    --info-l-300: var(--info-h) calc(var(--info-s)) calc(var(--info-l) + (100% - var(--info-l)) * 0.3);
+    --info-l-400: var(--info-h) calc(var(--info-s)) calc(var(--info-l) + (100% - var(--info-l)) * 0.4);
+    --info-l-500: var(--info-h) calc(var(--info-s)) calc(var(--info-l) + (100% - var(--info-l)) * 0.5);
+  /* info Darken  */
+    --info-d-100: var(--info-h) var(--info-s) calc(var(--info-l) - var(--info-l) * 0.1);
+    --info-d-200: var(--info-h) var(--info-s) calc(var(--info-l) - var(--info-l) * 0.2);
+    --info-d-300: var(--info-h) var(--info-s) calc(var(--info-l) - var(--info-l) * 0.3);
+    --info-d-400: var(--info-h) var(--info-s) calc(var(--info-l) - var(--info-l) * 0.4);
+    --info-d-500: var(--info-h) var(--info-s) calc(var(--info-l) - var(--info-l) * 0.5);
+  /* ========================= Info Color ============================= */
+  /* ========================= Success Color ============================= */
+    --success-h: 145;
+    --success-s: 63%;
+    --success-l: 42%;
+    --success: var(--success-h) var(--success-s) var(--success-l);
+  /* success Lighten */
+    --success-l-100: var(--success-h) calc(var(--success-s)) calc(var(--success-l) + (100% - var(--success-l)) * 0.1);
+    --success-l-200: var(--success-h) calc(var(--success-s)) calc(var(--success-l) + (100% - var(--success-l)) * 0.2);
+    --success-l-300: var(--success-h) calc(var(--success-s)) calc(var(--success-l) + (100% - var(--success-l)) * 0.3);
+    --success-l-400: var(--success-h) calc(var(--success-s)) calc(var(--success-l) + (100% - var(--success-l)) * 0.4);
+    --success-l-500: var(--success-h) calc(var(--success-s)) calc(var(--success-l) + (100% - var(--success-l)) * 0.5);
+  /* success Darken  */
+    --success-d-100: var(--success-h) var(--success-s) calc(var(--success-l) - var(--success-l) * 0.1);
+    --success-d-200: var(--success-h) var(--success-s) calc(var(--success-l) - var(--success-l) * 0.2);
+    --success-d-300: var(--success-h) var(--success-s) calc(var(--success-l) - var(--success-l) * 0.3);
+    --success-d-400: var(--success-h) var(--success-s) calc(var(--success-l) - var(--success-l) * 0.4);
+    --success-d-500: var(--success-h) var(--success-s) calc(var(--success-l) - var(--success-l) * 0.5);
+  /* ========================= Success Color ============================= */
+  /* ========================= Warning Color ============================= */
+    --waring-h: 45;
+    --waring-s: 74%;
+    --waring-l: 56%;
+    --waring: var(--waring-h) var(--waring-s) var(--waring-l);
+  /* waring Lighten */
+    --waring-l-100: var(--waring-h) calc(var(--waring-s)) calc(var(--waring-l) + (100% - var(--waring-l)) * 0.1);
+    --waring-l-200: var(--waring-h) calc(var(--waring-s)) calc(var(--waring-l) + (100% - var(--waring-l)) * 0.2);
+    --waring-l-300: var(--waring-h) calc(var(--waring-s)) calc(var(--waring-l) + (100% - var(--waring-l)) * 0.3);
+    --waring-l-400: var(--waring-h) calc(var(--waring-s)) calc(var(--waring-l) + (100% - var(--waring-l)) * 0.4);
+    --waring-l-500: var(--waring-h) calc(var(--waring-s)) calc(var(--waring-l) + (100% - var(--waring-l)) * 0.5);
+  /* waring Darken  */
+    --waring-d-100: var(--waring-h) var(--waring-s) calc(var(--waring-l) - var(--waring-l) * 0.1);
+    --waring-d-200: var(--waring-h) var(--waring-s) calc(var(--waring-l) - var(--waring-l) * 0.2);
+    --waring-d-300: var(--waring-h) var(--waring-s) calc(var(--waring-l) - var(--waring-l) * 0.3);
+    --waring-d-400: var(--waring-h) var(--waring-s) calc(var(--waring-l) - var(--waring-l) * 0.4);
+    --waring-d-500: var(--waring-h) var(--waring-s) calc(var(--waring-l) - var(--waring-l) * 0.5);
+  /* ========================= Warning Color ============================= */
+  /* ========================= Danger Color ============================= */
+    --danger-h: 0;
+    --danger-s: 79%;
+    --danger-l: 63%;
+    --danger: var(--danger-h) var(--danger-s) var(--danger-l);
+  /* danger Lighten */
+    --danger-l-100: var(--danger-h) calc(var(--danger-s)) calc(var(--danger-l) + (100% - var(--danger-l)) * 0.1);
+    --danger-l-200: var(--danger-h) calc(var(--danger-s)) calc(var(--danger-l) + (100% - var(--danger-l)) * 0.2);
+    --danger-l-300: var(--danger-h) calc(var(--danger-s)) calc(var(--danger-l) + (100% - var(--danger-l)) * 0.3);
+    --danger-l-400: var(--danger-h) calc(var(--danger-s)) calc(var(--danger-l) + (100% - var(--danger-l)) * 0.4);
+    --danger-l-500: var(--danger-h) calc(var(--danger-s)) calc(var(--danger-l) + (100% - var(--danger-l)) * 0.5);
+  /* danger Darken  */
+    --danger-d-100: var(--danger-h) var(--danger-s) calc(var(--danger-l) - var(--danger-l) * 0.1);
+    --danger-d-200: var(--danger-h) var(--danger-s) calc(var(--danger-l) - var(--danger-l) * 0.2);
+    --danger-d-300: var(--danger-h) var(--danger-s) calc(var(--danger-l) - var(--danger-l) * 0.3);
+    --danger-d-400: var(--danger-h) var(--danger-s) calc(var(--danger-l) - var(--danger-l) * 0.4);
+    --danger-d-500: var(--danger-h) var(--danger-s) calc(var(--danger-l) - var(--danger-l) * 0.5);
+  /* ========================= Danger Color ============================= */
+}
+/* ========================= Variable Css End ======================== */

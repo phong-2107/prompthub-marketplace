@@ -1,0 +1,123 @@
+/* ===================== Gradient Bg Css Start ======================= */
+.bg--gradient, .bg-pattern {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    object-fit: cover;
+}
+
+/* ===================== Gradient Bg Css End ======================= */
+/* ======================== Element Css Start ========================== */
+/* Curve Shape */
+.curve-shape {
+    position: absolute;
+    bottom: calc(100% - 1px);
+    left: 0;
+}
+
+.curve-shape.right {
+    left: auto;
+    right: 0;
+}
+
+@media screen and (max-width: 1399px) {
+    .curve-shape {
+        max-width: 250px;
+    }
+}
+
+@media screen and (max-width: 991px) {
+    .curve-shape {
+        max-width: 140px;
+    }
+}
+/* Curve Shape */
+.border-box {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    top: 0;
+    z-index: -1;
+}
+
+/* Line Curve Start */
+.line-curve {
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: -1;
+}
+
+.line-curve.two {
+    left: 0;
+    right: auto;
+    bottom: 0;
+    top: auto;
+}
+
+/* Line Curve End */
+/* Brush Element */
+.element-brush {
+    position: absolute;
+    z-index: -1;
+    left: 50px;
+    top: 64%;
+    animation: upDownRotate 15s linear infinite;
+}
+
+/* Element */
+.element {
+    position: absolute;
+    left: 90px;
+    bottom: 22%;
+    animation: upDownRotate 15s linear infinite;
+    z-index: -1;
+}
+
+.element.two {
+    left: auto;
+    right: 90px;
+    bottom: auto;
+    top: 22%;
+    animation-delay: 3s;
+}
+
+.element.three {
+    left: auto;
+    right: 16%;
+    bottom: 14%;
+    animation-delay: 5s;
+}
+
+@keyframes upDownRotate {
+    0%, 100% {
+        transform: translateY(0px) rotate(0deg);
+    }
+
+    50% {
+        transform: translateY(200px) rotate(360deg);
+    }
+
+    100% {
+        transform: translateY(0px) rotate(720deg);
+    }
+}
+/* Line Vector Element */
+.line-vector {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: -1;
+    max-width: 46%;
+}
+
+.line-vector.two {
+    left: auto;
+    right: 0;
+}
+
+/* ======================== Element Css End ========================== */

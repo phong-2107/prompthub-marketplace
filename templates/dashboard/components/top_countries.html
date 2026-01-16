@@ -1,0 +1,24 @@
+{% load static %}
+<!-- Top Countries Widget -->
+<div class="dashboard-card">
+    <div class="dashboard-card__header">
+        <h6 class="dashboard-card__title mb-0">{{ title }}</h6>
+    </div>
+    <ul class="country-list">
+        {% for country in countries %}
+        <li class="country-list__item flx-between gap-2">
+            <div class="country-list__content flx-align gap-2">
+                <span class="country-list__flag">
+                    <img src="{% static country.flag %}" alt="{{ country.name }}">
+                </span>
+                <span class="country-list__name">{{ country.name }}</span>
+            </div>
+            <span class="country-list__amount">${{ country.amount|floatformat:2 }}</span>
+        </li>
+        {% empty %}
+        <li class="country-list__item">
+            <p class="text-muted mb-0">No data available</p>
+        </li>
+        {% endfor %}
+    </ul>
+</div>

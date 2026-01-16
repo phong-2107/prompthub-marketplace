@@ -1,0 +1,75 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Title -->
+    <title>{% block title %}Digital Market Place - PromptHub{% endblock %}</title>
+    
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="{% static 'assets/images/logo/favicon.png' %}">
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="{% static 'assets/css/bootstrap.min.css' %}">
+    <!-- Fontawesome -->
+    <link rel="stylesheet" href="{% static 'assets/css/fontawesome-all.min.css' %}">
+    <!-- Slick -->
+    <link rel="stylesheet" href="{% static 'assets/css/slick.css' %}">
+    <!-- magnific popup -->
+    <link rel="stylesheet" href="{% static 'assets/css/magnific-popup.css' %}">
+    <!-- line awesome -->
+    <link rel="stylesheet" href="{% static 'assets/css/line-awesome.min.css' %}">
+    <!-- Main css -->
+    <link rel="stylesheet" href="{% static 'assets/css/main.css' %}">
+    
+    {% block extra_css %}{% endblock %}
+</head>
+
+<body>
+
+    <!--==================== Preloader Start ====================-->
+    {% include 'marketplace/partials/preloader.html' %}
+    <!--==================== Preloader End ====================-->
+
+    <!--==================== Overlay Start ====================-->
+    {% include 'marketplace/partials/overlay.html' %}
+    <!--==================== Overlay End ====================-->
+
+    <!--==================== Sidebar Overlay End ====================-->
+    <div class="side-overlay"></div>
+    <!--==================== Sidebar Overlay End ====================-->
+
+    <!--==================== Scroll to Top ====================-->
+    {% include 'marketplace/partials/scroll_top.html' %}
+    <!--==================== Scroll to Top End ====================-->
+
+    <!--==================== Mobile Menu Start ====================-->
+    {% include 'marketplace/partials/mobile_menu.html' %}
+    <!--==================== Mobile Menu End ====================-->
+
+    <!--==================== Header Start ====================-->
+    {% include 'marketplace/partials/header.html' %}
+    <!--==================== Header End ====================-->
+
+    <!--==================== Main Content Start ====================-->
+    {% block content %}
+    {% endblock %}
+    <!--==================== Main Content End ====================-->
+
+    <!--==================== Footer Start ====================-->
+    {% include 'marketplace/partials/footer.html' %}
+    <!--==================== Footer End ====================-->
+
+    <!--==================== Scripts Start ====================-->
+    {% include 'marketplace/partials/scripts.html' %}
+    <!--==================== Scripts End ====================-->
+    
+    {% block extra_js %}{% endblock %}
+
+</body>
+
+</html>

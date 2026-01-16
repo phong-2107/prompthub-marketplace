@@ -1,0 +1,97 @@
+{% load static %}
+<!-- ==================== Footer Two Start Here ==================== -->
+<footer class="footer-two section-bg position-relative z-index-1 overflow-hidden">
+
+    <img src="{% static 'assets/images/gradients/footer-gradient-bg.png' %}" alt="" class="bg--gradient">
+
+    <img src="{% static 'assets/images/shapes/footer-pattern1.png' %}" alt="" class="position-absolute end-0 top-0 z-index--1">
+    <img src="{% static 'assets/images/shapes/footer-pattern2.png' %}" alt="" class="position-absolute start-0 top-0 z-index--1">
+
+    <div class="footer-inner padding-y-120">
+        <div class="container container-two">
+            <div class="row gy-5">
+                <div class="col-xl-3 col-sm-6">
+                    <div class="footer-widget">
+                        <div class="footer-widget__logo">
+                            <a href="{% url 'core:home' %}">
+                                <img src="{% static 'assets/images/logo/logo.png' %}" alt="" class="white-version">
+                                <img src="{% static 'assets/images/logo/white-logo.png' %}" alt="" class="dark-version">
+                            </a>
+                        </div>
+                        <p class="footer-widget__desc">PromptHub - Your digital marketplace for AI prompts, templates, and creative resources.</p>
+                        <div class="footer-widget__social">
+                            <ul class="social-icon-list">
+                                <li class="social-icon-list__item">
+                                    <a href="https://www.facebook.com/" class="social-icon-list__link flx-center"><i class="fab fa-facebook-f"></i></a>
+                                </li>
+                                <li class="social-icon-list__item">
+                                    <a href="https://www.twitter.com/" class="social-icon-list__link flx-center"> <i class="fab fa-twitter"></i></a>
+                                </li>
+                                <li class="social-icon-list__item">
+                                    <a href="https://www.linkedin.com/" class="social-icon-list__link flx-center"><i class="fab fa-linkedin-in"></i></a>
+                                </li>
+                                <li class="social-icon-list__item">
+                                    <a href="https://www.youtube.com/" class="social-icon-list__link flx-center"><i class="fab fa-youtube"></i></a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-2 col-sm-6 col-xs-6">
+                    <div class="footer-widget">
+                        <h5 class="footer-widget__title">Company</h5>
+                        <ul class="footer-lists">
+                            <li class="footer-lists__item"><a href="{% url 'core:home' %}" class="footer-lists__link">Home</a></li>
+                            <li class="footer-lists__item"><a href="{% url 'core:about' %}" class="footer-lists__link">About</a></li>
+                            {% comment %}
+                            <li class="footer-lists__item"><a href="#" class="footer-lists__link">Products</a></li>
+                            <li class="footer-lists__item"><a href="#" class="footer-lists__link">Dashboard</a></li>
+                            {% endcomment %}
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-xl-1 d-xl-block d-none"></div>
+                <div class="col-xl-3 col-sm-6 col-xs-6">
+                    <div class="footer-widget">
+                        <h5 class="footer-widget__title">Quick Links</h5>
+                        <ul class="footer-lists">
+                            {% if user.is_authenticated %}
+                                <li class="footer-lists__item"><a href="{% url 'admin:index' %}" class="footer-lists__link">Dashboard</a></li>
+                                <li class="footer-lists__item"><a href="{% url 'admin:logout' %}" class="footer-lists__link">Logout</a></li>
+                            {% else %}
+                                <li class="footer-lists__item"><a href="{% url 'admin:login' %}" class="footer-lists__link">Login</a></li>
+                            {% endif %}
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-sm-6 col-xs-6">
+                    <div class="footer-widget">
+                        <h5 class="footer-widget__title">Categories</h5>
+                        <ul class="footer-lists">
+                            {% comment %}
+                            <!-- Categories will be populated from database -->
+                            {% endcomment %}
+                            <li class="footer-lists__item"><a href="#" class="footer-lists__link">AI Prompts</a></li>
+                            <li class="footer-lists__item"><a href="#" class="footer-lists__link">Templates</a></li>
+                            <li class="footer-lists__item"><a href="#" class="footer-lists__link">Graphics</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- bottom Footer Two -->
+    <div class="bottom-footer-two">
+        <div class="container container-two">
+            <div class="bottom-footer__inner flx-between gap-3">
+                <p class="bottom-footer__text font-14"> Copyright &copy; {% now "Y" %} PromptHub, All rights reserved.</p>
+                <div class="footer-links">
+                    <a href="#" class="footer-link font-14">Terms of service</a>
+                    <a href="#" class="footer-link font-14">Privacy Policy</a>
+                    <a href="#" class="footer-link font-14">Cookies</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- ==================== Footer Two End Here ==================== -->

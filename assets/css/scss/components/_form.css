@@ -1,0 +1,352 @@
+/* ================================= Form Css Start =========================== */
+/* input Start */
+.common-input {
+    border-radius: 5px;
+    font-weight: 400;
+    outline: none;
+    width: 100%;
+    padding: 17px 16px;
+    background-color: transparent !important;
+    border: 1px solid hsl(var(--border-color));
+    color: hsl(var(--black));
+    line-height: 1;
+    font-size: 1.0625rem;
+}
+
+@media screen and (max-width: 991px) {
+    .common-input {
+        padding: 10px 16px;
+    }
+}
+
+.common-input::placeholder {
+    color: hsl(var(--black-three));
+    font-size: 0.875rem;
+    transition: 0.25s linear;
+    font-weight: 400;
+}
+
+.common-input--md {
+    padding: 13px 16px;
+    font-size: 0.9375rem;
+}
+
+.common-input--lg {
+    padding: 25px 24px;
+}
+
+@media screen and (max-width: 767px) {
+    .common-input--lg {
+        padding: 18px 24px;
+    }
+}
+
+.common-input:focus {
+    border-color: hsl(var(--main));
+    box-shadow: none;
+}
+
+.common-input:focus::placeholder {
+    visibility: hidden;
+    opacity: 0;
+}
+
+.common-input:disabled, .common-input[readonly] {
+    background-color: hsl(var(--black)/0.2);
+    opacity: 1;
+    border: 0;
+}
+
+.common-input[type=password] {
+    color: hsl(var(--black)/0.5);
+}
+
+.common-input[type=password]:focus {
+    color: hsl(var(--black));
+}
+
+.common-input--withIcon {
+    padding-right: 50px !important;
+}
+
+.common-input--withLeftIcon {
+    padding-left: 50px !important;
+}
+
+.common-input--bg {
+    background-color: hsl(var(--gray-seven)) !important;
+    border-color: hsl(var(--gray-seven)) !important;
+}
+
+.common-input--bg::placeholder {
+    color: hsl(var(--black-three));
+}
+
+/* input End */
+/* input icon */
+.input-icon {
+    position: absolute;
+    right: 24px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: hsl(var(--heading-color));
+    font-size: 0.875rem;
+}
+
+.input-icon--left {
+    left: 20px;
+    right: auto;
+}
+
+textarea + .input-icon {
+    top: 15px;
+    transform: translateY(0);
+}
+
+/* input icon */
+/* Label */
+.form-label {
+    margin-bottom: 6px;
+    font-size: 0.875rem;
+    color: hsl(var(--heading-color));
+    font-weight: 500;
+}
+
+/* Form Select */
+select option {
+    background-color: hsl(var(--white));
+}
+
+.select-has-icon {
+    position: relative;
+}
+
+.select-has-icon::before {
+    position: absolute;
+    content: "\f107";
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    font-size: 0.75rem;
+    color: hsl(var(--main));
+    transition: 0.2s linear;
+    pointer-events: none;
+    color: hsl(var(--body-color)) !important;
+}
+
+.select-has-icon.icon-black::before {
+    -webkit-text-fill-color: hsl(var(--black));
+}
+
+.select-has-icon select {
+    background-image: none;
+    -webkit-appearance: none;
+    padding: 19px 24px;
+    font-size: 1rem;
+}
+
+@media screen and (max-width: 991px) {
+    .select-has-icon select {
+        padding: 12px 24px;
+    }
+}
+
+.select-has-icon .common-input {
+    padding-right: 30px !important;
+}
+
+.select {
+    color: hsl(var(--black)/0.6) !important;
+    padding: 16px 24px;
+    background-color: transparent;
+}
+
+@media screen and (max-width: 991px) {
+    .select {
+        padding: 11px 24px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .select {
+        padding: 9px 24px;
+        font-size: 0.9375rem;
+    }
+}
+
+.select:focus {
+    border-color: hsl(var(--main));
+    color: hsl(var(--black)) !important;
+    outline: none;
+}
+
+.select option {
+    background-color: hsl(var(--white));
+    color: hsl(var(--heading-color));
+}
+
+/* Form Select End */
+textarea.common-input {
+    height: 140px;
+}
+
+@media screen and (max-width: 767px) {
+    textarea.common-input {
+        height: 110px;
+    }
+}
+/* Autofill Css */
+input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:focus, input:-webkit-autofill:active,
+textarea:-webkit-autofill, textarea:-webkit-autofill:hover, textarea:-webkit-autofill:focus, textarea:-webkit-autofill:active {
+    -webkit-transition: background-color 5000s ease-in-out 0s;
+    transition: background-color 5000s ease-in-out 0s;
+}
+
+input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill, textarea:-webkit-autofill, textarea:-webkit-autofill, textarea:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0px 1000px transparent inset;
+    -webkit-text-fill-color: hsl(var(--heading-color)) !important;
+    caret-color: hsl(var(--heading-color));
+}
+
+/* Autofill Css End */
+/* Show Hide Password */
+input#your-password, input#confirm-password {
+    padding-right: 50px;
+}
+
+.password-show-hide {
+    position: absolute;
+    right: 20px;
+    z-index: 5;
+    cursor: pointer;
+    top: 50%;
+    transform: translateY(-50%);
+    color: hsl(var(--black)/0.4);
+}
+
+/* Number Arrow None */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+/* Custom Checkbox & Radio Css Start */
+.common-check {
+    margin-bottom: 16px;
+}
+
+.common-check:last-child {
+    margin-bottom: 0;
+}
+
+.common-check a {
+    display: inline;
+}
+
+.common-check.common-radio .form-check-input {
+    border-radius: 50%;
+}
+
+.common-check.common-radio .form-check-input:checked {
+    background-color: transparent !important;
+}
+
+.common-check.common-radio .form-check-input:checked::after {
+    visibility: visible;
+    opacity: 1;
+    -webkit-transform: translate(-50%, -50%) scale(1);
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.common-check .form-check-input {
+    transition: 0.2s linear;
+    box-shadow: none;
+    background-color: transparent;
+    box-shadow: none !important;
+    border: 0;
+    position: relative;
+    border-radius: 3px;
+    width: 18px;
+    height: 18px;
+    border: 1px solid hsl(var(--black)/0.4);
+    cursor: pointer;
+    transition: 0.2s linear;
+    margin-top: 0;
+}
+
+.common-check .form-check-input::before {
+    position: absolute;
+    content: "\f00c";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    color: hsl(var(--static-white));
+    font-size: 0.6875rem;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: 0.2s linear;
+    visibility: hidden;
+    opacity: 0;
+}
+
+.common-check .form-check-input::after {
+    position: absolute;
+    content: "";
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%) scale(0.2);
+    transform: translate(-50%, -50%) scale(0.2);
+    width: 10px;
+    height: 10px;
+    background-color: hsl(var(--main));
+    border-radius: 50%;
+    transition: 0.2s linear;
+    z-index: 1;
+    visibility: hidden;
+    opacity: 0;
+}
+
+.common-check .form-check-input:checked {
+    background-color: hsl(var(--main)) !important;
+    border-color: hsl(var(--main)) !important;
+    box-shadow: none;
+}
+
+.common-check .form-check-input:checked[type=checkbox] {
+    background-image: none;
+}
+
+.common-check .form-check-input:checked::before {
+    visibility: visible;
+    opacity: 1;
+}
+
+.common-check .form-check-label {
+    font-weight: 500;
+    width: calc(100% - 18px);
+    padding-left: 12px;
+    cursor: pointer;
+    font-size: 0.875rem;
+    color: hsl(var(--heading-color));
+    font-family: var(--poppins-font);
+}
+
+@media screen and (max-width: 424px) {
+    .common-check label {
+        font-size: 0.9375rem;
+    }
+}
+
+@media screen and (max-width: 424px) {
+    .common-check a {
+        font-size: 0.9375rem;
+    }
+}
+/* Custom Checkbox & Radio Css End */
+/* ================================= Form Css End =========================== */

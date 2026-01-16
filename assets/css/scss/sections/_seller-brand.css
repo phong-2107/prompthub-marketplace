@@ -1,0 +1,149 @@
+/* ======================= Become Seller Section Css start ==================== */
+.seller-two {
+    background-image: url(../images/shapes/wave-shape.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top;
+    position: relative;
+    background-color: hsl(var(--white));
+    padding-top: 216px;
+}
+
+@media screen and (max-width: 1199px) {
+    .seller-two {
+        padding-top: 120px;
+        background-color: hsl(var(--section-bg));
+        background-image: none;
+    }
+}
+
+@media screen and (max-width: 575px) {
+    .seller-two {
+        padding-bottom: 60px;
+    }
+}
+
+.seller-two::before {
+    position: absolute;
+    content: "";
+    width: 835px;
+    height: 682px;
+    background: linear-gradient(152deg, rgba(246, 246, 246, 0.2) 17.12%, rgba(94, 53, 242, 0.2) 105.91%);
+    filter: blur(100px);
+    bottom: 56px;
+    right: -280px;
+}
+
+.arrow-img {
+    position: absolute;
+    bottom: -40px;
+    left: 25%;
+}
+
+.seller-item {
+    padding: clamp(1.5rem, -2.38rem + 8.082vw, 4.6875rem) clamp(1.5rem, -0.174rem + 3.487vw, 2.875rem);
+    border-radius: 16px;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    background-color: #F3EBFF;
+}
+
+.seller-item.bg-two {
+    background-color: #FFCBE7;
+}
+
+.seller-item.bg-three {
+    background-color: #D7FDFF;
+}
+
+.seller-item__title {
+    margin-bottom: 24px;
+    color: hsl(var(--static-black));
+}
+
+.seller-item__desc {
+    margin-bottom: clamp(1.5rem, 0.283rem + 2.536vw, 2.5rem);
+    color: hsl(var(--static-black)) !important;
+}
+
+.support {
+    border-radius: 16px;
+    background-color: #FFEFF4;
+    position: relative;
+    overflow: hidden;
+    padding: 16px;
+}
+
+@media screen and (max-width: 767px) {
+    .support {
+        padding: 24px;
+    }
+}
+
+.support::before {
+    position: absolute;
+    content: "";
+    border-radius: 608px;
+    width: 608px;
+    height: 608px;
+    transform: rotate(41deg);
+    background-color: rgba(255, 80, 143, 0.3);
+    filter: blur(75px);
+    top: 88%;
+    left: 0;
+}
+
+.support-content {
+    padding-left: 24px;
+}
+
+.support-content__title {
+    color: hsl(var(--static-black));
+}
+
+@media screen and (max-width: 767px) {
+    .support-content {
+        padding-left: 0px;
+    }
+}
+
+.support-content__desc {
+    margin-bottom: 24px;
+    font-size: clamp(1rem, 0.696rem + 0.634vw, 1.25rem);
+    color: hsl(var(--static-black));
+}
+
+.arrow-shape {
+    position: absolute;
+    left: 31%;
+    top: 31%;
+    max-width: 28%;
+}
+
+@media screen and (max-width: 991px) {
+    .arrow-shape {
+        display: none;
+    }
+}
+/* ======================= Become Seller Section Css End ==================== */
+/* ======================== Brand Section Css Start ========================= */
+.brand {
+    margin: 60px 0;
+    position: relative;
+    z-index: 2;
+}
+
+@media screen and (max-width: 767px) {
+    .brand {
+        margin: 40px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .brand {
+        margin-bottom: -70px;
+        margin-top: 25px;
+    }
+}
+/* ======================== Brand Section Css End ========================= */

@@ -1,0 +1,77 @@
+/* ========================= Resource Section Css Start =========================== */
+.resource {
+    position: relative;
+}
+
+.resource.style-two::before {
+    background: linear-gradient(152deg, rgba(246, 246, 246, 0.2) 17.12%, rgba(94, 53, 242, 0.2) 105.91%);
+    bottom: auto;
+}
+
+.resource::before {
+    position: absolute;
+    content: "";
+    background: linear-gradient(152deg, rgba(246, 246, 246, 0.2) 17.12%, rgba(5, 228, 242, 0.2) 105.91%);
+    filter: blur(100px);
+    width: 712px;
+    height: 582px;
+    left: -224px;
+    bottom: 60px;
+    z-index: -1;
+}
+
+.resource .slick-arrow {
+    top: 96px;
+    transform: unset;
+}
+
+/* ========================= Resource Section Css End =========================== */
+/* ====================== Newsletter Section Css Start ===================== */
+.newsletter {
+    background-color: hsl(var(--static-black));
+    padding: 52px 0;
+}
+
+.newsletter-box .btn {
+    position: absolute;
+    right: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+@media screen and (max-width: 767px) {
+    .newsletter-box .btn {
+        right: 4px;
+        padding: 17px 24px;
+    }
+}
+
+.newsletter-box .common-input {
+    padding-right: 210px;
+}
+
+@media screen and (max-width: 767px) {
+    .newsletter-box .common-input {
+        padding-right: 130px;
+    }
+}
+
+.newsletter-man {
+    position: absolute;
+    bottom: 0;
+    left: clamp(0rem, -37.89rem + 43.333vw, 8.125rem);
+    z-index: -1;
+}
+
+@media screen and (max-width: 1199px) {
+    .newsletter-man {
+        display: none;
+    }
+}
+/* Newsletter Two Css Star */
+.newsletter-two-content {
+    max-width: 600px;
+}
+
+/* Newsletter Two Css End */
+/* ====================== Newsletter Section Css End ===================== */

@@ -1,0 +1,109 @@
+{% load static %}
+<!-- ==================== Header Start Here ==================== -->
+<header class="header">
+    <div class="container container-full">
+        <nav class="header-inner flx-between">
+            <!-- Logo Start -->
+            <div class="logo">
+                <a href="{% url 'core:home' %}" class="link white-version">
+                    <img src="{% static 'assets/images/logo/logo.png' %}" alt="Logo">
+                </a>
+                <a href="{% url 'core:home' %}" class="link dark-version">
+                    <img src="{% static 'assets/images/logo/white-logo.png' %}" alt="Logo">
+                </a>
+            </div>
+            <!-- Logo End  -->
+
+            <!-- Menu Start  -->
+            <div class="header-menu d-lg-block d-none">
+                <ul class="nav-menu flx-align ">
+                    <li class="nav-menu__item">
+                        <a href="{% url 'core:home' %}" class="nav-menu__link">Home</a>
+                    </li>
+                    <li class="nav-menu__item">
+                        <a href="{% url 'core:about' %}" class="nav-menu__link">About</a>
+                    </li> 
+                    <!-- Future menu items for products, blog, etc. -->
+                    <li class="nav-menu__item has-submenu">
+                        <a href="javascript:void(0)" class="nav-menu__link">Products</a>
+                        <ul class="nav-submenu">
+                            <li class="nav-submenu__item">
+                                <a href="#" class="nav-submenu__link"> All Products</a>
+                            </li>
+                            <li class="nav-submenu__item">
+                                <a href="#" class="nav-submenu__link"> Product Details</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-menu__item has-submenu">
+                        <a href="javascript:void(0)" class="nav-menu__link">Blog</a>
+                        <ul class="nav-submenu">
+                            <li class="nav-submenu__item">
+                                <a href="#" class="nav-submenu__link"> Blog</a>
+                            </li>
+                            <li class="nav-submenu__item">
+                                <a href="#" class="nav-submenu__link"> Blog Details</a>
+                            </li>
+                            <li class="nav-submenu__item">
+                                <a href="#" class="nav-submenu__link"> Blog Details Sidebar</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-menu__item">
+                        <a href="#" class="nav-menu__link">Contact</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- Menu End  -->
+
+            <!-- Header Right start -->
+            <div class="header-right flx-align">
+                <a href="#" class="header-right__button cart-btn position-relative">
+                    <img src="{% static 'assets/images/icons/cart.svg' %}" alt="" class="white-version">
+                    <img src="{% static 'assets/images/icons/cart-white.svg' %}" alt="" class="dark-version">
+                    <span class="qty-badge font-12">0</span>
+                </a>
+
+                <!-- Light Dark Mode -->
+                <div class="theme-switch-wrapper position-relative">
+                    <label class="theme-switch" for="checkbox">
+                        <input type="checkbox" class="d-none" id="checkbox">
+                        <span class="slider text-black header-right__button white-version">
+                            <img src="{% static 'assets/images/icons/sun.svg' %}" alt="">
+                        </span>
+                        <span class="slider text-black header-right__button dark-version">
+                            <img src="{% static 'assets/images/icons/moon.svg' %}" alt="">
+                        </span>
+                    </label>
+                </div>
+
+                <div class="header-right__inner gap-3 flx-align d-lg-flex d-none">
+                    {% if user.is_authenticated %}
+                        <a href="{% url 'admin:index' %}" class="btn btn-main pill">
+                            <span class="icon-left icon">
+                                <img src="{% static 'assets/images/icons/user.svg' %}" alt="">
+                            </span>Dashboard
+                        </a>
+                    {% else %}
+                        <a href="{% url 'admin:login' %}" class="btn btn-main pill">
+                            <span class="icon-left icon">
+                                <img src="{% static 'assets/images/icons/user.svg' %}" alt="">
+                            </span>Sign In
+                        </a>
+                    {% endif %}
+                    <div class="language-select flx-align select-has-icon">
+                        <img src="{% static 'assets/images/icons/globe.svg' %}" alt="" class="globe-icon white-version">
+                        <img src="{% static 'assets/images/icons/globe-white.svg' %}" alt="" class="globe-icon dark-version">
+                        <select class="select py-0 ps-2 border-0 fw-500">
+                            <option value="en">Eng</option>
+                            <option value="vi">Vie</option>
+                        </select>
+                    </div>
+                </div>
+                <button type="button" class="toggle-mobileMenu d-lg-none"> <i class="las la-bars"></i> </button>
+            </div>
+            <!-- Header Right End  -->
+        </nav>
+    </div>
+</header>
+<!-- ==================== Header End Here ==================== -->

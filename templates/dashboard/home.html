@@ -1,0 +1,125 @@
+{% extends 'dashboard/base.html' %}
+{% load static %}
+
+{% block title %}Dashboard - PromptHub Admin{% endblock %}
+
+{% block content %}
+
+<!-- welcome balance Content Start -->
+<div class="welcome-balance mt-2 mb-40 flx-between gap-2">
+    <div class="welcome-balance__left">
+        <h4 class="welcome-balance__title mb-0">Welcome back! {{ request.user.get_full_name|default:request.user.username }}</h4>
+    </div>
+    <div class="welcome-balance__right flx-align gap-2">
+        <span class="welcome-balance__text fw-500 text-heading">Available Balance:</span>
+        <h4 class="welcome-balance__balance mb-0">${{ user_balance|floatformat:2 }}</h4>
+    </div>
+</div>
+<!-- welcome balance Content End -->
+
+<div class="dashboard-body__item-wrapper">
+
+    <!-- dashboard body Item Start -->
+    <div class="dashboard-body__item">
+        <div class="row gy-4">
+            <!-- Total Products -->
+            <div class="col-xl-3 col-sm-6">
+                {% include 'dashboard/components/stat_card.html' with icon='assets/images/icons/dashboard-widget-icon1.svg' number=stats.total_products title='Total Products' %}
+            </div>
+            
+            <!-- Total Earnings -->
+            <div class="col-xl-3 col-sm-6">
+                {% include 'dashboard/components/stat_card.html' with icon='assets/images/icons/dashboard-widget-icon2.svg' number=stats.total_earnings title='Total Earnings' %}
+            </div>
+            
+            <!-- Total Downloads -->
+            <div class="col-xl-3 col-sm-6">
+                {% include 'dashboard/components/stat_card.html' with icon='assets/images/icons/dashboard-widget-icon3.svg' number=stats.total_downloads title='Total Downloads' %}
+            </div>
+            
+            <!-- Total Sales -->
+            <div class="col-xl-3 col-sm-6">
+                {% include 'dashboard/components/stat_card.html' with icon='assets/images/icons/dashboard-widget-icon4.svg' number=stats.total_sales title='Total Sales' %}
+            </div>
+        </div>
+    </div>
+    <!-- dashboard body Item End -->
+    
+    <!-- dashboard body Item Start -->
+    <div class="dashboard-body__item">
+        <div class="row gy-4">
+            <div class="col-xl-8">
+                {% include 'dashboard/components/sales_chart.html' with title='Sales History' period='monthly' %}
+            </div>
+            <div class="col-xl-4">
+                {% include 'dashboard/components/top_countries.html' with title='Top Countries' countries=top_countries %}
+            </div>
+        </div>
+    </div>
+    <!-- dashboard body Item End -->
+    
+    <!-- dashboard body Item Start -->
+    <div class="dashboard-body__item">
+        <div class="table-responsive">
+            <table class="table style-two">
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Item Sales</th>
+                        <th>Earning</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for sale in recent_sales %}
+                    <tr>
+                        <td>{{ sale.date|date:"l, d" }}</td>
+                        <td>{{ sale.items_count }}</td>
+                        <td>${{ sale.amount|floatformat:2 }}</td>
+                    </tr>
+                    {% empty %}
+                    <tr>
+                        <td colspan="3" class="text-center text-muted">No sales data available</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <!-- dashboard body Item End -->
+    
+</div>
+
+{% endblock %}
+
+{% block extra_js %}
+<script>
+// Chart configuration
+document.addEventListener('DOMContentLoaded', function() {
+    var options = {
+        series: [{
+            name: 'Sales',
+            data: {{ sales_data|safe }}
+        }],
+        chart: {
+            height: 350,
+            type: 'line',
+            zoom: {
+                enabled: false
+            }
+        },
+        dataLabels: {
+            enabled: false
+        },
+        stroke: {
+            curve: 'smooth'
+        },
+        xaxis: {
+            categories: {{ sales_labels|safe }}
+        }
+    };
+
+    var chart = new ApexCharts(document.querySelector("#chart"), options);
+    chart.render();
+});
+</script>
+{% endblock %}

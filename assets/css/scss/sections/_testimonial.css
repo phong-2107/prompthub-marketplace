@@ -1,0 +1,142 @@
+/* ======================= Testimonial Section Css Start ============================ */
+.testimonial .slick-arrow {
+    top: 48%;
+    margin-top: -2px;
+}
+
+@media screen and (max-width: 1199px) {
+    .testimonial .slick-arrow {
+        top: 52%;
+    }
+}
+
+@media screen and (max-width: 991px) {
+    .testimonial .slick-arrow {
+        top: 45%;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .testimonial .slick-arrow {
+        top: 50%;
+    }
+}
+
+@media screen and (max-width: 424px) {
+    .testimonial .slick-arrow {
+        top: 53%;
+    }
+}
+
+.testimonial-item {
+    padding: 40px 32px;
+    background-color: hsl(var(--white));
+    border-radius: 16px;
+    transition: 0.2s linear;
+}
+
+@media screen and (max-width: 1199px) {
+    .testimonial-item {
+        padding: 32px;
+    }
+}
+
+@media screen and (max-width: 991px) {
+    .testimonial-item {
+        padding: 24px;
+    }
+}
+
+@media screen and (max-width: 575px) {
+    .testimonial-item {
+        padding: 24px 16px;
+    }
+}
+
+.testimonial-item:hover {
+    background-color: hsl(var(--black));
+}
+
+.testimonial-item:hover .testimonial-item__desc {
+    color: hsl(var(--static-white));
+}
+
+.testimonial-item:hover .quote-white {
+    visibility: visible;
+    opacity: 1;
+}
+
+.testimonial-item:hover .quote-dark {
+    visibility: hidden;
+    opacity: 0;
+}
+
+.testimonial-item:hover .client-info__name {
+    color: hsl(var(--static-white));
+}
+
+.testimonial-item:hover .client-info__designation {
+    color: hsl(var(--static-white)) !important;
+    font-weight: 400 !important;
+}
+
+.testimonial-item__desc {
+    font-size: clamp(0.9375rem, 0.557rem + 0.792vw, 1.25rem);
+    margin-bottom: clamp(1.5rem, 0.283rem + 2.536vw, 2.5rem);
+}
+
+.testimonial-item__quote {
+    text-align: end;
+    position: relative;
+    z-index: 1;
+    height: 25px;
+    margin-bottom: clamp(1.5rem, 0.283rem + 2.536vw, 2.5rem);
+}
+
+.testimonial-item__quote::before {
+    position: absolute;
+    content: "";
+    width: calc(100% - 40px);
+    height: 1px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: hsl(var(--gray-five));
+    left: -32px;
+    z-index: -1;
+}
+
+@media screen and (max-width: 991px) {
+    .testimonial-item__quote::before {
+        left: -24px;
+    }
+}
+
+.testimonial-item__quote .quote {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.testimonial-item__quote .quote-white {
+    visibility: hidden;
+    opacity: 0;
+}
+
+/* Client Info */
+.client-info__thumb {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.client-info__name {
+    transition: 0.2s linear;
+}
+
+.client-info__designation {
+    transition: 0.2s linear;
+}
+
+/* ======================= Testimonial Section Css End ============================ */

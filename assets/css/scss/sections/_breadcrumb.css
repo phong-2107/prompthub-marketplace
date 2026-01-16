@@ -1,0 +1,106 @@
+/* ======================== Breadcrumb One Section Css Start ===================== */
+.breadcrumb {
+    margin-bottom: 0;
+    padding: 60px 0;
+}
+
+.breadcrumb-one-content {
+    max-width: 704px;
+}
+
+.breadcrumb-one-content__desc {
+    margin-bottom: 32px;
+}
+
+@media screen and (max-width: 991px) {
+    .breadcrumb-one-content__desc {
+        margin-bottom: 24px;
+    }
+}
+
+.breadcrumb-one-content .search-box {
+    max-width: 636px;
+    margin: 0 auto;
+}
+
+.breadcrumb.border-bottom {
+    border-bottom: 1px solid hsl(var(--gray-five)) !important;
+}
+
+/* ======================== Breadcrumb One Section Css End ===================== */
+/* ======================== Breadcrumb Two Section Css End ===================== */
+.breadcrumb-two {
+    padding: 72px 0;
+}
+
+@media screen and (max-width: 991px) {
+    .breadcrumb-two {
+        padding: 60px 0;
+    }
+}
+
+@media screen and (max-width: 991px) {
+    .breadcrumb-content__item {
+        font-size: 0.875rem;
+    }
+}
+
+@media screen and (max-width: 575px) {
+    .breadcrumb-tab {
+        margin-bottom: 24px;
+    }
+}
+/* Social Icons Css Start */
+.social-share {
+    position: relative;
+}
+
+.social-share__button {
+    color: hsl(var(--body-color));
+}
+
+.social-share__icons {
+    background-color: hsl(var(--white));
+    padding: 12px;
+    border-radius: 5px;
+    position: absolute;
+    right: 0;
+    top: 100%;
+    min-width: max-content;
+    filter: drop-shadow(0px 4px 10px rgba(0, 0, 0, 0.2));
+    visibility: hidden;
+    opacity: 0;
+    margin-top: 16px;
+    transition: 0.1s linear;
+}
+
+.social-share__icons.show {
+    visibility: visible;
+    opacity: 1;
+    margin-top: 6px;
+}
+
+.social-share__icons.left {
+    right: auto;
+    left: 0;
+}
+
+.social-share__icons.left::before {
+    left: 8px;
+    right: auto;
+}
+
+.social-share__icons::before {
+    position: absolute;
+    content: "";
+    width: 14px;
+    height: 14px;
+    top: -7px;
+    right: 8px;
+    transform: rotate(45deg);
+    background-color: hsl(var(--white));
+    border-radius: 3px;
+}
+
+/* Social Icons Css End */
+/* ======================== Breadcrumb Two Section Css End ===================== */

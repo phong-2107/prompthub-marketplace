@@ -1,0 +1,387 @@
+/* ============================ Cart Page Css Start ===================== */
+.cart-content__bottom {
+    margin-top: 64px;
+}
+
+@media screen and (max-width: 1199px) {
+    .cart-content__bottom {
+        margin-top: 48px;
+    }
+}
+
+@media screen and (max-width: 991px) {
+    .cart-content__bottom {
+        margin-top: 40px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .cart-content__bottom {
+        margin-top: 32px;
+    }
+}
+
+@media screen and (max-width: 575px) {
+    .cart-content__bottom .btn {
+        padding: 17px 20px;
+    }
+}
+
+.cart-item {
+    max-width: 342px;
+}
+
+.cart-item__thumb {
+    width: 164px;
+    height: 130px;
+    flex-shrink: 0;
+    display: flex;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.cart-item__count {
+    width: auto;
+    display: inline-flex;
+    align-items: center;
+    border: 1px solid hsl(var(--gray-four));
+    border-radius: 5px;
+    margin: 0 auto;
+}
+
+.cart-item__count input {
+    background: transparent;
+    border: 0;
+    text-align: center;
+    width: 24px;
+    color: hsl(var(--heading-color));
+    font-size: 16px;
+}
+
+.cart-item__count input:focus {
+    outline: none;
+}
+
+.cart-item__count button {
+    width: 40px;
+    height: 40px;
+    font-size: 16px;
+    color: hsl(var(--body-color));
+    border-radius: inherit;
+}
+
+.cart-item__count button:hover {
+    color: hsl(var(--main));
+}
+
+/* ============================ Cart Page Css End ===================== */
+/* =================== Cart Personal Start ========================== */
+.order-summary {
+    background-color: hsl(var(--section-bg));
+    border-radius: 8px;
+    padding: 24px;
+}
+
+.billing-list__item {
+    position: relative;
+    padding-bottom: 16px;
+    margin-bottom: 16px;
+}
+
+.billing-list__item:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.billing-list__item:last-child::before {
+    display: none;
+}
+
+.billing-list__item::before {
+    position: absolute;
+    content: "";
+    width: calc(100% + 48px);
+    left: 50%;
+    height: 1px;
+    transform: translateX(-50%);
+    background-color: hsl(var(--gray-five));
+    bottom: 0;
+}
+
+/* =================== Cart Personal End ========================== */
+/* ======================= Cart Payment Section Css Start ========================= */
+.cart-payment__box {
+    background-color: #544889;
+    background-color: hsl(var(--section-bg));
+    padding: 84px 0;
+    border-radius: 24px;
+}
+
+@media screen and (max-width: 991px) {
+    .cart-payment__box {
+        padding: 56px 0;
+    }
+}
+
+@media screen and (max-width: 575px) {
+    .cart-payment__box {
+        padding: 24px;
+    }
+}
+/* Payment Method */
+.payment-method {
+    margin-bottom: 72px;
+}
+
+@media screen and (max-width: 991px) {
+    .payment-method {
+        margin-bottom: 60px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .payment-method {
+        margin-bottom: 40px;
+    }
+}
+
+.payment-method__item .form-check-input:checked + .form-check-label::before {
+    background: var(--main-gradient);
+}
+
+.payment-method__item .form-check-input:checked + .form-check-label::after {
+    background: hsl(var(--static-white));
+    width: calc(100% - 4px);
+    height: calc(100% - 4px);
+}
+
+.payment-method__item .form-check-label {
+    background-color: hsl(var(--gray-seven));
+    position: relative;
+    z-index: 1;
+    border-radius: 4px;
+    width: 94px;
+    height: 64px;
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+    padding: 4px;
+    transition: 0.2s linear;
+    width: 100%;
+    cursor: pointer;
+}
+
+.payment-method__item .form-check-label::before, .payment-method__item .form-check-label::after {
+    border-radius: inherit;
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 100%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background: #D9D9D9;
+    z-index: -1;
+    transition: 0.2s linear;
+}
+
+.payment-method__item .form-check-label::after {
+    background: hsl(var(--gray-seven));
+    width: calc(100% - 2px);
+    height: calc(100% - 2px);
+}
+
+.payment-method .slick-initialized.slick-slider .slick-slide {
+    margin: 0 4px;
+}
+
+.payment-method__wrapper {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.payment-method__wrapper .payment-method__item {
+    width: 100px;
+}
+
+/* Payment Method */
+.cart-payment-card {
+    position: relative;
+    background: var(--main-gradient);
+    padding: 24px;
+    z-index: 1;
+    border-radius: 16px;
+}
+
+@media screen and (max-width: 575px) {
+    .cart-payment-card {
+        padding: 24px 16px;
+    }
+}
+
+.cart-payment-card::before {
+    position: absolute;
+    content: "";
+    width: calc(100% - 2px);
+    height: calc(100% - 2px);
+    background-color: hsl(var(--white));
+    left: 1px;
+    top: 1px;
+    border-radius: inherit;
+    z-index: -1;
+}
+
+.total-bill {
+    background-color: hsl(var(--gray-seven));
+    padding: 16px;
+    border-radius: 4px;
+}
+
+/* Payment Select Card Css Start */
+.payment-select-card-wrapper {
+    max-height: 480px;
+    overflow-y: auto;
+    padding-inline-end: 8px;
+  /* width */
+  /* Track */
+  /* Handle */
+  /* Handle on hover */
+}
+
+.payment-select-card-wrapper::-webkit-scrollbar {
+    width: 6px;
+}
+
+.payment-select-card-wrapper::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.payment-select-card-wrapper::-webkit-scrollbar-thumb {
+    background: #e8e8e8;
+    border-radius: 10px;
+}
+
+.payment-select-card-wrapper::-webkit-scrollbar-thumb:hover {
+    background: #d1d1d1;
+}
+
+.payment-select-card {
+    position: relative;
+    padding: 20px;
+    border-radius: 12px;
+}
+
+.payment-select-card .form-check-label {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    border: 1px solid hsl(var(--border-color));
+    border-radius: 12px;
+    transition: 0.2s linear;
+}
+
+.payment-select-card .form-check-input:checked ~ .form-check-label {
+    border-color: hsl(var(--black));
+    border-color: hsl(var(--main));
+}
+
+.payment-select-card__logo {
+    max-width: 100px;
+}
+
+/* Payment Select Card Css En */
+/* ======================= Cart Payment Section Css End ========================= */
+/* ========================= Cart Thank You Section Css Start ======================= */
+.cart-thank__box {
+    border-radius: 24px;
+    background-color: hsl(var(--section-bg));
+    padding: clamp(1rem, -3.858rem + 7.843vw, 3rem);
+    background-color: hsl(var(--white)/0.45);
+    backdrop-filter: blur(12px);
+    box-shadow: var(--box-shadow);
+}
+
+@media screen and (max-width: 575px) {
+    .cart-thank__box {
+        padding: 0px;
+        background-color: transparent;
+    }
+}
+
+.cart-thank__img img {
+    max-width: 56%;
+}
+
+/* thank card */
+.thank-card {
+    padding: clamp(1rem, -2.643rem + 5.882vw, 2.5rem);
+    border-radius: 24px;
+    height: 100%;
+    position: relative;
+    z-index: 1;
+    transition: 0.2s linear;
+    background: transparent;
+}
+
+.thank-card:hover {
+    box-shadow: 0px 20px 30px 0px rgba(197, 196, 201, 0.25);
+    background: var(--main-gradient);
+}
+
+.thank-card::before {
+    position: absolute;
+    content: "";
+    width: calc(100% - 2px);
+    height: calc(100% - 2px);
+    background: hsl(var(--white));
+    left: 1px;
+    top: 1px;
+    border-radius: inherit;
+    z-index: -1;
+    transition: 0.2s linear;
+}
+
+/* List Text Start */
+.list-text {
+    border: 1px solid hsl(var(--gray-five));
+    border-radius: 16px;
+}
+
+.list-text__item {
+    border-bottom: 1px solid hsl(var(--gray-five));
+}
+
+.list-text__item .text {
+    padding: 16px 24px;
+    border-right: 1px solid hsl(var(--gray-five));
+}
+
+@media screen and (max-width: 1199px) {
+    .list-text__item .text {
+        padding: 16px;
+    }
+}
+
+@media screen and (max-width: 424px) {
+    .list-text__item .text {
+        padding: 16px 8px;
+    }
+}
+
+.list-text__item .text:first-child {
+    width: 60%;
+}
+
+.list-text__item .text:last-child {
+    border-right: 0;
+}
+
+.list-text__item:last-child {
+    border-bottom: 0;
+}
+
+/* List Text End */
+/* ========================= Cart Thank You Section Css End ======================= */

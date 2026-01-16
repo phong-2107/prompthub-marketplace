@@ -1,0 +1,88 @@
+/* ========================== Account Page Css Start ============================= */
+.dark-light-mode {
+    position: absolute;
+    right: 24px;
+    top: 24px;
+}
+
+.account {
+    position: relative;
+}
+
+.account__img {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
+
+@media screen and (max-width: 991px) {
+    .account__img {
+        display: none;
+    }
+}
+
+.account__left {
+    width: 43%;
+    padding: 32px;
+    position: relative;
+}
+
+@media screen and (max-width: 991px) {
+    .account__left {
+        width: 60%;
+    }
+}
+
+.account__left::before {
+    position: absolute;
+    content: "";
+    width: 675px;
+    height: 552px;
+    background: linear-gradient(152deg, rgba(246, 246, 246, 0.3) 17.12%, rgba(94, 53, 242, 0.3) 105.91%);
+    filter: blur(100px);
+    left: -290px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: -1;
+}
+
+.account__right {
+    flex-grow: 1;
+    padding-left: 32px;
+    padding-right: 32px;
+    padding-bottom: 300px;
+    position: relative;
+}
+
+@media screen and (max-width: 991px) {
+    .account__right {
+        padding-bottom: 80px;
+    }
+}
+
+@media screen and (max-width: 575px) {
+    .account__right {
+        padding-bottom: 60px;
+    }
+}
+
+@media screen and (max-width: 575px) {
+    .account__right {
+        padding-left: 24px;
+        padding-right: 24px;
+    }
+}
+
+.account-thumb {
+    max-width: 572px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.account-content {
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* ========================== Account Page Css End ============================= */

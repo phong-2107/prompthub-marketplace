@@ -1,0 +1,272 @@
+/* =========================== Banner Section Start Here ========================= */
+.hero {
+    position: relative;
+    z-index: 1;
+    padding: 132px 0;
+}
+
+@media screen and (max-width: 991px) {
+    .hero {
+        padding: 80px 0;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .hero {
+        padding: 60px 0;
+    }
+}
+
+.hero-inner__title {
+    margin-bottom: 24px;
+    font-size: clamp(2rem, -2.0093rem + 7.85vw, 4.5rem);
+    text-transform: capitalize;
+}
+
+@media screen and (max-width: 991px) {
+    .hero-inner__title {
+        margin-bottom: 16px;
+    }
+}
+
+.hero-inner__desc {
+    max-width: 572px;
+    margin-bottom: clamp(1.5rem, -0.326rem + 3.803vw, 3rem);
+}
+
+.hero-thumb {
+    max-width: 744px;
+    max-height: 614px;
+    margin-right: auto;
+    position: relative;
+    transform: translateX(120px);
+}
+
+@media screen and (max-width: 1599px) {
+    .hero-thumb {
+        transform: translateX(80px);
+    }
+}
+
+@media screen and (max-width: 1499px) {
+    .hero-thumb {
+        transform: translateX(0px);
+    }
+}
+/* tech list start */
+.product-category-list {
+    margin-top: 32px;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+@media screen and (max-width: 1199px) {
+    .product-category-list {
+        margin-top: 24px;
+        gap: 12px;
+    }
+}
+
+.product-category-list__item {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background-color: hsl(var(--white));
+    flex-shrink: 0;
+}
+
+@media screen and (max-width: 1199px) {
+    .product-category-list__item {
+        width: 40px;
+        height: 40px;
+    }
+}
+/* tech list End */
+/* Statistics Start */
+.statistics {
+    padding: 34px 16px;
+    border-radius: 16px;
+    border: 1px solid hsl(var(--white));
+    box-shadow: 0px 20px 30px 0px rgba(94, 53, 242, 0.3);
+    display: inline-block;
+    aspect-ratio: 1;
+    min-width: 120px;
+    top: 42%;
+    left: 33%;
+    position: absolute;
+}
+
+.statistics.style-two {
+    right: 0px;
+    border-radius: 16px;
+    box-shadow: -10px 20px 30px 0px rgba(189, 190, 204, 0.5);
+    left: auto;
+    top: 60px;
+    max-width: 120px;
+}
+
+.statistics.style-three {
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: none !important;
+    padding: 34px 10px;
+}
+
+@media (min-width: 1699px) {
+    .statistics.style-three {
+        min-width: 196px;
+    }
+}
+
+.statistics.style-three .statistics__amount {
+    margin-bottom: 8px;
+}
+
+@media screen and (max-width: 1499px) {
+    .statistics.style-three .statistics__text {
+        font-size: 0.875rem;
+    }
+}
+
+@media screen and (max-width: 1399px) {
+    .statistics.style-three .statistics__text {
+        font-size: 0.75rem;
+    }
+}
+
+.statistics.animation {
+    animation: upDown 20s linear infinite;
+}
+
+.statistics__amount {
+    margin-bottom: 0;
+}
+
+/* Statistics End */
+@keyframes upDown {
+    0%, 100% {
+        transform: translateY(0px) scale(1);
+    }
+
+    25% {
+        transform: translateY(30px) scale(1.1);
+    }
+
+    50% {
+        transform: translateY(0px) scale(1);
+    }
+
+    75% {
+        transform: translateY(-30px) scale(1.1);
+    }
+}
+
+.dotted-img {
+    position: absolute;
+    left: 20%;
+    top: 37%;
+    z-index: -1;
+    animation: scaling 20s linear infinite;
+    max-width: 75%;
+}
+
+@media screen and (max-width: 575px) {
+    .dotted-img {
+        display: none;
+    }
+}
+
+@keyframes scaling {
+    0%, 100% {
+        transform: scale(0.6);
+    }
+
+    50% {
+        transform: scale(1.2);
+    }
+}
+
+.dotted-img.style-three {
+    position: absolute;
+    right: 2%;
+    top: 84px;
+    z-index: -1;
+    animation: scaling 20s linear infinite;
+    max-width: 75%;
+    left: auto;
+}
+
+/* Auto Suggestions Css Start */
+.auto-suggestion-list {
+    background-color: hsl(var(--white));
+    border-radius: 0 0 8px 8px;
+    overflow: hidden;
+    display: none;
+    box-shadow: 0 0.125rem 1px rgba(0, 0, 0, 0.075) !important;
+    max-height: 280px;
+    overflow-y: auto;
+    position: absolute;
+    top: 100%;
+    width: 100%;
+    left: 0;
+    z-index: 1;
+}
+
+.auto-suggestion-list::-webkit-scrollbar {
+    width: 6px;
+}
+
+.auto-suggestion-list::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.auto-suggestion-list::-webkit-scrollbar-thumb {
+    background: #e8e8e8;
+    border-radius: 10px;
+}
+
+.auto-suggestion-list::-webkit-scrollbar-thumb:hover {
+    background: #d1d1d1;
+}
+
+.auto-suggestion-list__item {
+    padding: 10px 24px;
+    cursor: pointer;
+}
+
+.auto-suggestion-list__item:hover {
+    background-color: hsl(var(--black)/0.06);
+}
+
+.auto-suggestion-input.active {
+    border-radius: 8px 8px 0 0 !important;
+    box-shadow: none !important;
+}
+
+.auto-suggestion-input::placeholder {
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+.auto-suggestion-list.active {
+    display: block;
+    border-top: 1px solid hsl(var(--black)/0.06);
+}
+
+[data-theme=light] .auto-suggestion-list__item {
+    background: var(--dark-black-three);
+}
+
+[data-theme=light] .auto-suggestion-list__item:hover {
+    background-color: var(--dark-black-two) !important;
+}
+
+/* Auto Suggestions Css End */
+/* =========================== Banner Section End Here ========================= */

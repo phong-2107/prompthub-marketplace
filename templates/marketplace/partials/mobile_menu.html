@@ -1,0 +1,58 @@
+{% load static %}
+<!-- ==================== Mobile Menu Start Here ==================== -->
+<div class="mobile-menu d-lg-none d-block">
+    <button type="button" class="close-button"> <i class="las la-times"></i> </button>
+    <div class="mobile-menu__inner">
+        <a href="{% url 'core:home' %}" class="mobile-menu__logo">
+            <img src="{% static 'assets/images/logo/logo.png' %}" alt="Logo" class="white-version">
+            <img src="{% static 'assets/images/logo/white-logo-two.png' %}" alt="Logo" class="dark-version">
+        </a>
+        <div class="mobile-menu__menu">
+            <ul class="nav-menu flx-align nav-menu--mobile">
+                <li class="nav-menu__item">
+                    <a href="{% url 'core:home' %}" class="nav-menu__link">Home</a>
+                </li>
+                <li class="nav-menu__item">
+                    <a href="{% url 'core:about' %}" class="nav-menu__link">About</a>
+                </li>
+                {% comment %}
+                <li class="nav-menu__item has-submenu">
+                    <a href="javascript:void(0)" class="nav-menu__link">Products</a>
+                    <ul class="nav-submenu">
+                        <li class="nav-submenu__item">
+                            <a href="#" class="nav-submenu__link"> All Products</a>
+                        </li>
+                        <li class="nav-submenu__item">
+                            <a href="#" class="nav-submenu__link"> Product Details</a>
+                        </li>
+                    </ul>
+                </li>
+                {% endcomment %}
+            </ul>
+            <div class="header-right__inner d-lg-none my-3 gap-1 d-flex flx-align">
+                {% if user.is_authenticated %}
+                    <a href="{% url 'admin:index' %}" class="btn btn-main pill">
+                        <span class="icon-left icon">
+                            <img src="{% static 'assets/images/icons/user.svg' %}" alt="">
+                        </span>Dashboard
+                    </a>
+                {% else %}
+                    <a href="{% url 'admin:login' %}" class="btn btn-main pill">
+                        <span class="icon-left icon">
+                            <img src="{% static 'assets/images/icons/user.svg' %}" alt="">
+                        </span>Sign In
+                    </a>
+                {% endif %}
+                <div class="language-select flx-align select-has-icon">
+                    <img src="{% static 'assets/images/icons/globe.svg' %}" alt="" class="globe-icon white-version">
+                    <img src="{% static 'assets/images/icons/globe-white.svg' %}" alt="" class="globe-icon dark-version">
+                    <select class="select py-0 ps-2 border-0 fw-500">
+                        <option value="en">Eng</option>
+                        <option value="vi">Vie</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- ==================== Mobile Menu End Here ==================== -->

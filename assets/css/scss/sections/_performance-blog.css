@@ -1,0 +1,103 @@
+/* ===================== Top Performance Start ============================= */
+.top-performance::before {
+    position: absolute;
+    content: "";
+    width: 750px;
+    height: 613px;
+    background: linear-gradient(152deg, rgba(246, 246, 246, 0.2) 17.12%, rgba(242, 5, 135, 0.2) 105.91%);
+    filter: blur(100px);
+    right: -100px;
+    top: 120px;
+    z-index: -1;
+}
+
+.performance-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.performance-content__item {
+    background: #ddd;
+    aspect-ratio: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50% 0px 50% 0px;
+    flex-direction: column;
+}
+
+.performance-content__item:nth-child(1) {
+    background-color: #FDFBEB;
+    border-radius: 0px 50% 0px 50%;
+}
+
+.performance-content__item:nth-child(2) {
+    background-color: #DAD1FD;
+}
+
+.performance-content__item:nth-child(3) {
+    background-color: #FDCDF8;
+}
+
+.performance-content__item:nth-child(4) {
+    background-color: #D0FBFE;
+    border-radius: 0px 50% 0px 50%;
+}
+
+.performance-content__text, .performance-content__count {
+    color: hsl(var(--static-black));
+    margin-bottom: 8px;
+}
+
+.performance-content__count {
+    margin-bottom: 0;
+}
+
+/* ===================== Top Performance End ============================= */
+/* =========================== Blog Section Css Start ========================== */
+.post-item {
+    background-color: hsl(var(--white));
+    border-radius: 16px;
+    overflow: hidden;
+    height: 100%;
+}
+
+.post-item:hover .post-item__thumb img {
+    transform: scale(1);
+}
+
+.post-item__thumb {
+    max-height: 294px;
+    overflow: hidden;
+}
+
+.post-item__thumb img {
+    transform: scale(1.1);
+    transition: 0.2s linear;
+}
+
+.post-item__content {
+    padding: clamp(1rem, 0.391rem + 1.268vw, 1.5rem);
+}
+
+.post-item__top {
+    gap: clamp(1rem, -1.998rem + 4vw, 1.5rem);
+}
+
+.post-item__tag {
+    padding: 8px 16px;
+    background-color: #F5F7F9;
+}
+
+.post-item__title {
+    margin: 24px 0 32px;
+}
+
+.post-item__title .link {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* =========================== Blog Section Css End ========================== */

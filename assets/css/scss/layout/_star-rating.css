@@ -1,0 +1,14 @@
+/* =============================== Star Rating Css Start =============================== */
+.star-rating {
+    gap: 4px;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.star-rating__item {
+    font-size: 0.875rem;
+    color: #FFA944;
+}
+
+/* =============================== Star Rating Css End =============================== */

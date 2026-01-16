@@ -1,0 +1,127 @@
+/* =========================== Article Section Css Start ============================ */
+.article-item-wrapper {
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+
+.article-item {
+    display: flex;
+    justify-content: space-between;
+    gap: clamp(1rem, -0.826rem + 3.803vw, 2.5rem);
+    border: 1px solid hsl(var(--gray-five));
+    border-left: 0;
+    border-right: 0;
+}
+
+@media screen and (max-width: 767px) {
+    .article-item {
+        min-width: max-content;
+    }
+}
+
+.article-item:hover .article-item__thumb {
+    top: 16px;
+    visibility: visible;
+    opacity: 1;
+}
+
+@media screen and (max-width: 767px) {
+    .article-item:hover .article-item__thumb {
+        top: 0;
+    }
+}
+
+.article-item__inner {
+    gap: clamp(1.5rem, -2.38rem + 8.082vw, 4.6875rem);
+    flex-grow: 1;
+    padding: 32px 0;
+}
+
+@media screen and (max-width: 1199px) {
+    .article-item__inner {
+        padding: 24px 0;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .article-item__inner {
+        padding: 16px 0;
+    }
+}
+
+.article-item__center {
+    gap: clamp(1.5rem, -3.521rem + 10.46vw, 5.625rem);
+}
+
+.article-item__content {
+    max-width: 476px;
+}
+
+@media screen and (max-width: 991px) {
+    .article-item__content {
+        max-width: 330px;
+    }
+}
+
+.article-item__top {
+    gap: clamp(0.5rem, -0.717rem + 2.536vw, 1.5rem);
+    margin-bottom: clamp(0.75rem, -0.163rem + 1.902vw, 1.5rem);
+}
+
+.article-item__tag {
+    padding: 4px 16px;
+    border-radius: 50px;
+    border: 1px solid hsl(var(--gray-five));
+    color: hsl(var(--black-three));
+}
+
+.article-item__tag:hover {
+    border-color: hsl(var(--main));
+    color: hsl(var(--main));
+}
+
+.article-item__thumb {
+    max-width: 300px;
+    max-height: 190px;
+    border-radius: 8px;
+    overflow: hidden;
+    position: absolute;
+    right: 40px;
+    z-index: 1;
+    top: 32px;
+    transform: rotate(-15deg);
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.2s linear;
+}
+
+@media screen and (max-width: 767px) {
+    .article-item__thumb {
+        position: relative;
+        visibility: visible;
+        opacity: 1;
+        top: 0px;
+        transform: rotate(0);
+        right: 0;
+    }
+}
+
+.article-item__end {
+    margin-right: 24px;
+    margin-top: clamp(1rem, -0.826rem + 3.803vw, 2.5rem);
+}
+
+@media screen and (max-width: 1199px) {
+    .article-item__end {
+        margin-right: 0;
+    }
+}
+
+.user-info__thumb {
+    width: 86px;
+    height: 86px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+/* =========================== Article Section Css End ============================ */

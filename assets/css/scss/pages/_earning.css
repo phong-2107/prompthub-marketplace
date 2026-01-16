@@ -1,0 +1,78 @@
+/* ========================= Earning Section Css Start ============================= */
+.earning-card {
+    background-color: hsl(var(--static-black));
+    padding: 24px;
+    border-radius: 8px;
+    border: 1px solid hsl(var(--gray-five));
+    box-shadow: var(--box-shadow);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.earning-card__amount {
+    border-color: hsl(var(--white)/0.2) !important;
+}
+
+/* ========================= Earning Section Css End ============================= */
+/* ========================= Statement Section Css start =========================== */
+.statement-list {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* ========================= Statement Section Css End =========================== */
+/* ==================== Table Review Product Css Start ========================= */
+.review-product__thumb {
+    width: 40px;
+    height: 40px;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+/* ==================== Table Review Product Css End ========================= */
+/* ========================= Download Section Css Start ====================== */
+.download-wrapper {
+    background-color: hsl(var(--section-bg));
+    padding: 24px;
+    border-radius: 16px;
+    overflow-x: auto;
+}
+
+.download-item {
+    position: relative;
+    padding-bottom: 24px;
+    margin-bottom: 24px;
+    min-width: max-content;
+}
+
+.download-item:last-child {
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
+
+.download-item:last-child::before {
+    display: none;
+}
+
+.download-item::before {
+    position: absolute;
+    content: "";
+    width: calc(100% + 48px);
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    background-color: hsl(var(--gray-five));
+    height: 1px;
+}
+
+.download-item__thumb {
+    width: 80px;
+    height: 80px;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+/* ========================= Download Section Css End ====================== */

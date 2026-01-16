@@ -1,0 +1,114 @@
+{% load static %}
+<!-- ============================== Banner Two Start =========================== -->
+<section class="banner-two position-relative z-index-1 overflow-hidden">
+    <img src="{% static 'assets/images/gradients/banner-two-gradient.png' %}" alt="" class="bg--gradient white-version">
+    <img src="{% static 'assets/images/gradients/banner-two-gradient-dark.png' %}" alt="" class="bg--gradient dark-version">
+    <img src="{% static 'assets/images/shapes/element-moon3.png' %}" alt="" class="element one">
+    <img src="{% static 'assets/images/shapes/element-moon2.png' %}" alt="" class="element two">
+    <img src="{% static 'assets/images/shapes/element-moon1.png' %}" alt="" class="element three">
+
+
+    <div class="container container-full">
+        <div class="row gy-sm-5 gy-4 align-items-center">
+
+            <div class="col-xl-3 col-sm-6 order-xl-0 order-2">
+                <div class="position-relative z-index-1">
+                    <img src="{% static 'assets/images/shapes/dots-sm.png' %}" alt=""
+                        class="dotted-img d-xl-block d-none white-version">
+                    <img src="{% static 'assets/images/shapes/dots-sm-white.png' %}" alt=""
+                    <img src="{% static 'assets/images/shapes/dots-sm-white.png' %}" alt=""
+                        class="dotted-img d-xl-block d-none dark-version">
+                    <div class="statistics-wrapper">
+                        {% comment %} <div class="statistics style-three position-relative start-0 top-0 bg-white text-center">
+                            <h5 class="statistics__amount statistics__amount-two text-heading">5,000+</h5>
+                            <span class="statistics__text">Active Members</span>
+                        </div> {% endcomment %}
+
+                        <div class="statistics style-three position-relative start-0 top-0 bg-white text-center">
+                            <h5 class="statistics__amount statistics__amount-two text-heading">2+ Million</h5>
+                            <span class="statistics__text">Total Views</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xl-6">
+                <div class="banner-two__content">
+                    <h1 class="banner-two__title text-center mb-3">20000+ curated assets for Use</h1>
+                    {% comment %} <p class="banner-two__desc text-center">Lorem ipsum dolor sit amet consectetur. Arcu vestibulum
+                        dictumst fermentum rhoncus. Velit dui a lorem in sagittis nisl lectus diam.</p> {% endcomment %}
+
+                    <form action="#" class="search-box style-two">
+                        <div class="search-box__select select-has-icon">
+                            <select class="form-control form-control py-0 border-0 bg-transparent " >
+                                <option value="1" selected disabled>All fields</option>
+                                <option value="2">WordPress</option>
+                                <option value="3">Laravel</option>
+                                <option value="4">PHP</option>
+                                <option value="5">React</option>
+                                <option value="6">HTML</option>
+                                <option value="7">Figma</option>
+                            </select>
+                        </div>
+                        <input type="text" class="common-input common-input--lg pill shadow-sm"
+                            placeholder="Search theme, plugins &amp; more...">
+                        <button type="submit" class="btn btn-main btn-icon icon border-0">
+                            <img src="{% static 'assets/images/icons/search.svg' %}" alt="">
+                        </button>
+                    </form>
+
+                    <div class="popular-search d-flex align-items-start gap-3 justify-content-center">
+                        <h6 class="popular-search__title font-18 fw-700 mb-0 mt-1 flex-shrink-0 flx-align gap-1">
+                            <span class="d-md-flex d-none">Popular</span> Search:
+                        </h6>
+                        <ul class="search-list">
+                            <li class="search-list__item">
+                                <a href="#"  {# TODO: Update with products URL #} class="search-list__link font-14 text-heading">theme</a>
+                            </li>
+                            <li class="search-list__item">
+                                <a href="#"  {# TODO: Update with products URL #} class="search-list__link font-14 text-heading">plugins</a>
+                            </li>
+                            <li class="search-list__item">
+                                <a href="#"  {# TODO: Update with products URL #} class="search-list__link font-14 text-heading">ui
+                                    template</a>
+                            </li>
+                            <li class="search-list__item">
+                                <a href="#"  {# TODO: Update with products URL #} class="search-list__link font-14 text-heading">mobile
+                                    app</a>
+                            </li>
+                            <li class="search-list__item">
+                                <a href="#"  {# TODO: Update with products URL #} class="search-list__link font-14 text-heading">html
+                                    template</a>
+                            </li>
+                            <li class="search-list__item">
+                                <a href="#"  {# TODO: Update with products URL #} class="search-list__link font-14 text-heading">dashboard</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xl-3 col-sm-6">
+                <div class="position-relative z-index-1">
+                    <img src="{% static 'assets/images/shapes/dots-sm.png' %}" alt=""
+                        class="dotted-img d-xl-block d-none white-version">
+                    <img src="{% static 'assets/images/shapes/dots-sm-white.png' %}" alt=""
+                        class="dotted-img d-xl-block d-none dark-version">
+                    <div class="statistics-wrapper style-right">
+                        <div class="statistics style-three position-relative start-0 top-0 bg-white text-center">
+                            <h5 class="statistics__amount statistics__amount-two text-heading">35k+</h5>
+                            <span class="statistics__text">Themes and Plugin</span>
+                        </div>
+
+                        <div class="statistics style-three position-relative start-0 top-0 bg-white text-center">
+                            <h5 class="statistics__amount statistics__amount-two text-heading">24/7</h5>
+                            <span class="statistics__text">Customer Support</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+<!-- ============================== Banner Two End =========================== -->
