@@ -1,0 +1,958 @@
+<div align="center">
+  <h1>🚀 PromptHub</h1>
+  <p><strong>Enterprise-Grade Digital Marketplace Platform</strong></p>
+  
+  [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+  [![Python](https://img.shields.io/badge/Python-3.11+-green.svg)](https://python.org)
+  [![Django](https://img.shields.io/badge/Django-4.2-092E20.svg)](https://djangoproject.com)
+  [![PostgreSQL](https://img.shields.io/badge/PostgreSQL-15+-336791.svg)](https://postgresql.org)
+  [![Docker](https://img.shields.io/badge/Docker-Ready-2496ED.svg)](https://docker.com)
+  
+  <p>
+    <a href="#-quick-start">Quick Start</a> •
+    <a href="#-key-features">Features</a> •
+    <a href="#-architecture">Architecture</a> •
+    <a href="#-installation">Installation</a> •
+    <a href="#-documentation">Documentation</a>
+  </p>
+</div>
+
+---
+
+## 📖 Introduction
+
+**PromptHub** is a production-ready digital marketplace platform built with Django 4.2, designed for selling and distributing AI prompts, digital products, and creative assets. The platform combines a modern, responsive frontend with a powerful backend infrastructure, offering a complete solution for digital commerce.
+
+### Why PromptHub?
+
+- **🎯 Purpose-Built**: Specifically designed for digital product marketplaces with focus on AI prompts and creative assets
+- **🏢 Enterprise-Ready**: Production-grade architecture with Docker containerization, Redis caching, and Celery task queues
+- **⚡ High Performance**: Optimized PostgreSQL queries, efficient ORM usage, and comprehensive caching strategy
+- **🎨 Beautiful UI**: Professional marketplace design with 24+ modular templates, dark/light mode, and mobile-first approach
+- **🔐 Secure by Default**: Built-in security features, token-based authentication, and environment-based configuration
+- **📈 Scalable**: Modular architecture allows easy scaling from MVP to enterprise-level deployment
+
+### Perfect For
+
+- Digital product marketplaces
+- AI prompt libraries and stores
+- Creative asset platforms
+- SaaS product catalogs
+- Educational content platforms
+
+---
+
+## ✨ Key Features
+
+### 🛍️ **Marketplace Core**
+- **Product Management**: Complete CRUD operations for digital products with categories, tags, and pricing
+- **Search & Discovery**: Advanced search functionality with filtering by category, price, and popularity
+- **User Dashboard**: Comprehensive admin panel for managing products, orders, and analytics
+- **Shopping Cart**: Full-featured cart system with session management
+- **Order Processing**: Automated order workflow with email notifications
+
+### 🔐 **Authentication & Security**
+- **Multi-Auth Support**: Django session auth, token-based API authentication
+- **Custom User Model**: Extended user profiles with avatars, bio, and social links
+- **Permission System**: Role-based access control (RBAC) for staff and customers
+- **Secure Payments**: Payment gateway integration ready (Stripe/PayPal)
+- **Environment Security**: Sensitive data managed through environment variables
+
+### 💾 **Database & Performance**
+- **PostgreSQL**: Robust relational database with ACID compliance
+- **Query Optimization**: Efficient ORM usage with select_related() and prefetch_related()
+- **Redis Caching**: Session storage and application-level caching
+- **Database Migrations**: Version-controlled schema changes
+- **Data Seeding**: Sample data generators for development
+
+### 🎨 **Frontend & UI**
+- **Responsive Design**: Mobile-first design with Bootstrap 5
+- **24+ Templates**: Modular template architecture for easy customization
+- **Dark/Light Mode**: Built-in theme switcher
+- **Component Library**: Reusable UI components (cards, modals, forms)
+- **Interactive Elements**: Ajax-powered cart, dynamic filters, and smooth animations
+
+### 🔧 **Developer Experience**
+- **Docker Ready**: Complete containerization with Docker Compose
+- **Celery Integration**: Async task processing for emails, exports, and background jobs
+- **REST API**: Django REST Framework for mobile apps and third-party integrations
+- **Comprehensive Docs**: 12+ documentation files covering all aspects
+- **Development Tools**: Debug toolbar, shell_plus, and admin customization
+
+### 📊 **Admin & Analytics**
+- **Custom Dashboard**: Real-time statistics and charts (sales, revenue, users)
+- **Product Analytics**: Views, downloads, ratings, and conversion tracking
+- **User Management**: User list with activity metrics and bulk actions
+- **Content Management**: Categories, reviews, and blog post management
+- **Export Functions**: CSV/Excel export for reports
+
+### 📊 **Admin & Analytics**
+- **Custom Dashboard**: Real-time statistics and charts (sales, revenue, users)
+- **Product Analytics**: Views, downloads, ratings, and conversion tracking
+- **User Management**: User list with activity metrics and bulk actions
+- **Content Management**: Categories, reviews, and blog post management
+- **Export Functions**: CSV/Excel export for reports
+
+---
+
+## 🏗️ Architecture
+
+PromptHub follows a modern **Model-Template-View (MTV)** architecture pattern with clean separation of concerns and modular design principles.
+
+### System Architecture
+
+```mermaid
+graph TB
+    subgraph "Client Layer"
+        Browser[Web Browser]
+        Mobile[Mobile App]
+    end
+    
+    subgraph "Load Balancer"
+        Nginx[Nginx<br/>Reverse Proxy]
+    end
+    
+    subgraph "Application Layer"
+        Django[Django Web Server<br/>Gunicorn]
+        API[REST API<br/>Django REST Framework]
+        Admin[Admin Dashboard]
+    end
+    
+    subgraph "Task Queue"
+        Celery[Celery Workers]
+        Beat[Celery Beat<br/>Scheduler]
+    end
+    
+    subgraph "Data Layer"
+        PostgreSQL[(PostgreSQL<br/>Database)]
+        Redis[(Redis<br/>Cache & Queue)]
+        Media[Media Storage<br/>S3/Local]
+    end
+    
+    Browser --> Nginx
+    Mobile --> Nginx
+    Nginx --> Django
+    Nginx --> API
+    Nginx --> Admin
+    
+    Django --> PostgreSQL
+    Django --> Redis
+    Django --> Media
+    
+    API --> PostgreSQL
+    API --> Redis
+    
+    Admin --> PostgreSQL
+    Admin --> Redis
+    
+    Celery --> PostgreSQL
+    Celery --> Redis
+    Beat --> Celery
+    
+    style Django fill:#092E20
+    style PostgreSQL fill:#336791
+    style Redis fill:#DC382D
+    style Nginx fill:#009639
+```
+
+### Request Flow
+
+```mermaid
+sequenceDiagram
+    participant User
+    participant Nginx
+    participant Django
+    participant Database
+    participant Cache
+    
+    User->>Nginx: HTTP Request
+    Nginx->>Django: Forward Request
+    
+    Django->>Cache: Check Cache
+    alt Cache Hit
+        Cache-->>Django: Return Cached Data
+    else Cache Miss
+        Django->>Database: Query Data
+        Database-->>Django: Return Results
+        Django->>Cache: Store in Cache
+    end
+    
+    Django->>Django: Render Template
+    Django-->>Nginx: HTTP Response
+    Nginx-->>User: Deliver Page
+```
+
+### Application Structure
+
+```mermaid
+graph LR
+    subgraph "Django Apps"
+        Core[Core<br/>Homepage & Basic Views]
+        PromptHub[PromptHub<br/>Products & Orders]
+        Users[Users<br/>Authentication]
+        API[API<br/>REST Endpoints]
+    end
+    
+    subgraph "Shared Components"
+        Models[Models<br/>Database Schema]
+        Templates[Templates<br/>HTML/UI]
+        Static[Static Files<br/>CSS/JS/Images]
+    end
+    
+    Core --> Models
+    PromptHub --> Models
+    Users --> Models
+    API --> Models
+    
+    Core --> Templates
+    PromptHub --> Templates
+    
+    Templates --> Static
+    
+    style Core fill:#4CAF50
+    style PromptHub fill:#2196F3
+    style Users fill:#FF9800
+    style API fill:#9C27B0
+```
+
+### Technology Stack
+
+| Layer | Technology | Purpose |
+|-------|-----------|---------|
+| **Backend** | Django 4.2 | Web framework |
+| **Database** | PostgreSQL 15 | Primary data store |
+| **Cache** | Redis 7 | Session & application cache |
+| **Task Queue** | Celery | Async job processing |
+| **Web Server** | Gunicorn | WSGI HTTP server |
+| **Reverse Proxy** | Nginx | Load balancing & static files |
+| **Frontend** | Bootstrap 5 | UI framework |
+| **API** | Django REST Framework | RESTful APIs |
+| **Containerization** | Docker & Docker Compose | Development & deployment |
+
+---
+
+## 🚀 Quick Start
+
+Get up and running in under 5 minutes:
+
+```bash
+# 1. Clone the repository
+git clone https://github.com/phong-2107/prompthub-marketplace.git
+cd prompthub-marketplace
+
+# 2. Start with Docker (Recommended)
+docker-compose up -d
+
+# 3. Create admin user
+docker-compose exec web python manage.py createsuperuser
+
+# 4. Access the application
+# 🌐 Homepage: http://localhost:8000
+# 🔐 Admin Panel: http://localhost:8000/admin
+# 📊 Dashboard: http://localhost:8000/dashboard
+```
+
+**That's it!** 🎉 The application is now running with:
+- PostgreSQL database with sample data
+- Redis cache ready
+- Celery workers processing tasks
+- Nginx serving static files
+
+👉 **New to the project?** Start with **[START_HERE.md](START_HERE.md)** for a guided tour.
+
+---
+
+## 📦 Installation
+
+### Prerequisites
+
+Ensure you have the following installed:
+
+- **Python 3.11+** ([Download](https://python.org))
+- **PostgreSQL 15+** ([Download](https://postgresql.org))
+- **Redis 7+** ([Download](https://redis.io))
+- **Docker & Docker Compose** (Optional, [Download](https://docker.com))
+- **Git** ([Download](https://git-scm.com))
+
+### Method 1: Docker Installation (Recommended)
+
+Perfect for development and quick setup:
+
+```bash
+# 1. Clone repository
+git clone https://github.com/phong-2107/prompthub-marketplace.git
+cd prompthub-marketplace
+
+# 2. Copy environment file
+cp .env.example .env
+
+# 3. Start all services
+docker-compose up -d
+
+# 4. Run migrations
+docker-compose exec web python manage.py migrate
+
+# 5. Create superuser
+docker-compose exec web python manage.py createsuperuser
+
+# 6. Load sample data (optional)
+docker-compose exec web python manage.py loaddata seed_data.json
+
+# 7. Access application
+# http://localhost:8000
+```
+
+**Docker Services:**
+- `web` - Django application (port 8000)
+- `db` - PostgreSQL database (port 5432)
+- `redis` - Redis cache (port 6379)
+- `nginx` - Web server (port 80)
+- `celery` - Task worker
+- `celery_beat` - Task scheduler
+
+### Method 2: Local Installation
+
+For advanced users or production setup:
+
+#### Step 1: Setup Virtual Environment
+
+```bash
+# Create virtual environment
+python -m venv venv
+
+# Activate (Windows)
+venv\Scripts\activate
+
+# Activate (Linux/macOS)
+source venv/bin/activate
+```
+
+#### Step 2: Install Dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+#### Step 3: Configure PostgreSQL
+
+```sql
+-- Connect to PostgreSQL
+psql -U postgres
+
+-- Create database
+CREATE DATABASE prompthub;
+CREATE USER promptuser WITH PASSWORD 'your_secure_password';
+
+-- Grant privileges
+ALTER ROLE promptuser SET client_encoding TO 'utf8';
+ALTER ROLE promptuser SET default_transaction_isolation TO 'read committed';
+ALTER ROLE promptuser SET timezone TO 'UTC';
+GRANT ALL PRIVILEGES ON DATABASE prompthub TO promptuser;
+```
+
+#### Step 4: Configure Environment Variables
+
+```bash
+# Copy example file
+cp .env.example .env
+
+# Edit .env with your settings
+# Update database credentials, secret key, etc.
+```
+
+#### Step 5: Run Migrations
+
+```bash
+python manage.py migrate
+```
+
+#### Step 6: Create Superuser
+
+```bash
+python manage.py createsuperuser
+```
+
+#### Step 7: Collect Static Files
+
+```bash
+python manage.py collectstatic --noinput
+```
+
+#### Step 8: Run Development Server
+
+```bash
+python manage.py runserver
+```
+
+#### Step 9: Start Celery (Separate Terminal)
+
+```bash
+# Worker
+celery -A config worker -l info
+
+# Beat scheduler (another terminal)
+celery -A config beat -l info
+```
+
+---
+
+## ⚙️ Configuration
+
+### Environment Variables
+
+Copy `.env.example` to `.env` and configure:
+
+```bash
+# Core Settings
+DJANGO_SETTINGS_MODULE=config.settings.development
+SECRET_KEY=your-secret-key-here-change-in-production
+DEBUG=True
+
+# Database Configuration
+DB_NAME=prompthub
+DB_USER=promptuser
+DB_PASSWORD=your_secure_password
+DB_HOST=localhost  # Use 'db' for Docker
+DB_PORT=5432
+
+# Redis Configuration
+REDIS_URL=redis://localhost:6379/1
+CELERY_BROKER_URL=redis://localhost:6379/0
+
+# Email Configuration (Production)
+EMAIL_BACKEND=django.core.mail.backends.smtp.EmailBackend
+EMAIL_HOST=smtp.gmail.com
+EMAIL_PORT=587
+EMAIL_USE_TLS=True
+EMAIL_HOST_USER=your-email@gmail.com
+EMAIL_HOST_PASSWORD=your-app-password
+DEFAULT_FROM_EMAIL=noreply@prompthub.com
+
+# Security (Production)
+ALLOWED_HOSTS=your-domain.com,www.your-domain.com
+CSRF_TRUSTED_ORIGINS=https://your-domain.com
+SECURE_SSL_REDIRECT=True
+SESSION_COOKIE_SECURE=True
+CSRF_COOKIE_SECURE=True
+
+# AWS S3 (Optional - for media files)
+AWS_ACCESS_KEY_ID=your-access-key
+AWS_SECRET_ACCESS_KEY=your-secret-key
+AWS_STORAGE_BUCKET_NAME=your-bucket-name
+AWS_S3_REGION_NAME=us-east-1
+```
+
+### Settings Structure
+
+The project uses environment-based settings:
+
+```
+config/settings/
+├── base.py           # Common settings
+├── development.py    # Development (DEBUG=True)
+├── staging.py        # Staging environment
+└── production.py     # Production (DEBUG=False)
+```
+
+Switch environments:
+
+```
+PromptProject/
+├── apps/                           # Django applications
+│   ├── core/                       # ✅ Core app (Homepage)
+│   │   ├── views.py               # home() → marketplace/home.html
+│   │   └── urls.py                # '' → home view
+│   ├── prompthub/                  # Marketplace app
+│   ├── users/                      # User management
+│   └── api/                        # REST API
+├── templates/                      # ✅ Django Templates
+│   └── marketplace/                # ⭐ ACTIVE HOMEPAGE
+│       ├── base.html              # Master template
+│       ├── home.html              # Homepage (13 sections)
+│       ├── partials/              # Reusable components (7 files)
+│       └── sections/              # Homepage sections (13 files)
+├── assets/                         # ✅ Frontend Assets
+│   ├── css/                       # Stylesheets (Bootstrap, main.css)
+│   ├── js/                        # JavaScript (jQuery, slick, etc.)
+│   ├── images/                    # Images & graphics
+│   ├── fonts/                     # Custom fonts
+│   └── webfonts/                  # Font Awesome
+├── config/                         # Django configuration
+│   ├── settings/base.py           # ✅ STATICFILES_DIRS includes assets/
+│   └── urls.py                    # Root routing
+├── docker/                         # Docker configuration
+├── docs/                           # 📚 Technical Documentation
+│   ├── DATABASE_GUIDE.md          # Database guide
+│   ├── DASHBOARD_SYSTEM.md        # Dashboard docs
+│   ├── PROJECT_STRUCTURE.md       # Structure guide
+│   ├── VISUAL_GUIDE.md            # Visual diagrams
+│   └── ROADMAP.md                 # Development roadmap
+├── doc/                            # Archived files
+│   └── original_templates/        # Original HTML templates
+├── static/                         # Django static files
+└── media/                          # User uploads
+├── templates/                      # HTML templates
+│   ├── base.html                  # Base template
+│   └── core/
+│       ├── home.html              # Home page
+│       └── about.html             # About page
+├── media/                          # User uploads
+├── .env.example                    # Environment variables example
+├── .gitignore                      # Git ignore file
+├── docker-compose.yml              # Docker Compose config
+├── Dockerfile                      # Docker image
+├── manage.py                       # Django management
+├── requirements.txt                # Python dependencies
+├── docker-compose.yml              # Docker services
+└── README.md                       # This file
+```
+
+**📚 Full documentation:** See [docs/PROJECT_STRUCTURE.md](docs/PROJECT_STRUCTURE.md) for detailed structure
+
+## 🏠 Homepage
+
+The project uses a professional **Digital Marketplace** template as the homepage:
+
+- **URL**: `http://localhost:8000/` → `marketplace/home.html`
+- **Template**: 24 modular Django templates (base + partials + sections)
+- **Features**: Hero banner, product listings, categories, pricing, testimonials, blog
+- **Design**: Fully responsive with dark/light mode toggle
+- **Assets**: Complete CSS/JS/images included in `assets/` folder
+
+## 🔧 System Requirements
+
+- Python 3.11+
+- PostgreSQL 15+
+- Redis 7+
+- Docker & Docker Compose (tùy chọn)
+
+## 📦 Cài đặt
+
+### Phương pháp 1: Cài đặt Local (Development)
+
+#### 1. Clone repository
+
+```bash
+git clone <repository-url>
+cd PromptProject
+```
+
+#### 2. Tạo virtual environment
+
+```bash
+python -m venv venv
+
+# Windows
+venv\Scripts\activate
+
+# Linux/macOS
+source venv/bin/activate
+```
+
+#### 3. Cài đặt dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+#### 4. Cấu hình PostgreSQL
+
+Tạo database:
+
+```sql
+CREATE DATABASE django_dev;
+CREATE USER postgres WITH PASSWORD 'postgres';
+ALTER ROLE postgres SET client_encoding TO 'utf8';
+ALTER ROLE postgres SET default_transaction_isolation TO 'read committed';
+ALTER ROLE postgres SET timezone TO 'UTC';
+GRANT ALL PRIVILEGES ON DATABASE django_dev TO postgres;
+```
+
+#### 5. Cấu hình environment variables
+
+```bash
+# Copy file .env.example thành .env
+copy .env.example .env    # Windows
+cp .env.example .env      # Linux/macOS
+
+# Chỉnh sửa .env với thông tin của bạn
+```
+
+#### 6. Chạy migrations
+
+```bash
+python manage.py migrate
+```
+
+#### 7. Tạo superuser
+
+```bash
+python manage.py createsuperuser
+```
+
+#### 8. Collect static files
+
+```bash
+python manage.py collectstatic
+```
+
+#### 9. Chạy development server
+
+```bash
+python manage.py runserver
+```
+
+Truy cập: http://localhost:8000
+
+#### 10. Chạy Celery (Terminal riêng)
+
+```bash
+# Celery Worker
+celery -A config worker -l info
+
+# Celery Beat (Terminal khác)
+celery -A config beat -l info --scheduler django_celery_beat.schedulers:DatabaseScheduler
+```
+
+### Phương pháp 2: Sử dụng Docker (Khuyến nghị)
+
+#### 1. Copy environment file
+
+```bash
+copy .env.example .env    # Windows
+cp .env.example .env      # Linux/macOS
+```
+
+#### 2. Build và chạy containers
+
+```bash
+docker-compose up -d --build
+```
+
+#### 3. Chạy migrations trong container
+
+```bash
+docker-compose exec web python manage.py migrate
+```
+
+#### 4. Tạo superuser
+
+```bash
+docker-compose exec web python manage.py createsuperuser
+```
+
+#### 5. Truy cập ứng dụng
+
+- **Web Application**: http://localhost:8000
+- **Admin Panel**: http://localhost:8000/admin
+- **API**: http://localhost:8000/api/
+
+#### 6. Xem logs
+
+```bash
+# Tất cả services
+docker-compose logs -f
+
+# Chỉ web service
+docker-compose logs -f web
+
+# Chỉ celery
+docker-compose logs -f celery
+```
+
+#### 7. Dừng containers
+
+```bash
+docker-compose down
+
+# Xóa volumes (database data)
+docker-compose down -v
+```
+
+## 📊 PromptHub Database
+
+Dự án bao gồm database **PromptHub** - hệ thống quản lý Prompt AI chuyên nghiệp với đầy đủ tính năng:
+
+- ✅ Quản lý người dùng & RBAC (Role-Based Access Control)
+- ✅ AI Platforms & Models (ChatGPT, Claude, Gemini...)
+- ✅ Quản lý Prompts với phân loại chi tiết
+- ✅ Tương tác người dùng (Like, Save, Comment, Rating)
+- ✅ Subscription & Payment system
+- ✅ System config & Activity logging
+
+### Setup Database Nhanh
+
+**Với Docker (Khuyến nghị):**
+
+```bash
+# 1. Copy file .env cho Docker
+copy .env.docker .env
+
+# 2. Khởi động database
+docker-compose up -d db redis
+
+# 3. Chạy migrations
+docker-compose exec web python manage.py makemigrations
+docker-compose exec web python manage.py migrate
+
+# 4. Import dữ liệu mẫu
+docker-compose exec web python manage.py setup_prompthub_db --seed
+```
+
+**Với Local:**
+
+```bash
+# Windows
+setup_database.bat
+
+# Linux/macOS
+chmod +x setup_database.sh
+./setup_database.sh
+```
+
+📖 **Xem hướng dẫn chi tiết**: 
+- Docker: [DOCKER_DATABASE_SETUP.md](DOCKER_DATABASE_SETUP.md)
+- Local: [DATABASE_GUIDE.md](DATABASE_GUIDE.md)
+
+## 🎯 Sử dụng
+
+### Admin Panel
+
+1. Truy cập: http://localhost:8000/admin
+2. Đăng nhập với superuser đã tạo
+3. Quản lý users, models, và data
+
+### REST API
+
+#### Authentication
+
+**Login và lấy token:**
+
+```bash
+POST /api/auth/login/
+Content-Type: application/json
+
+{
+  "username": "admin",
+  "password": "admin123"
+}
+
+Response:
+{
+  "token": "your-auth-token"
+}
+```
+
+#### User Endpoints
+
+**Lấy danh sách users:**
+
+```bash
+GET /api/users/
+Authorization: Token your-auth-token
+```
+
+**Lấy profile hiện tại:**
+
+```bash
+GET /api/users/me/
+Authorization: Token your-auth-token
+```
+
+**Tạo user mới:**
+
+```bash
+POST /api/users/
+Content-Type: application/json
+
+{
+  "username": "newuser",
+  "email": "user@example.com",
+  "password": "securepass123",
+  "password_confirm": "securepass123",
+  "first_name": "John",
+  "last_name": "Doe"
+}
+```
+
+**Cập nhật profile:**
+
+```bash
+PUT /api/users/update_profile/
+Authorization: Token your-auth-token
+Content-Type: application/json
+
+{
+  "first_name": "Updated",
+  "last_name": "Name",
+  "bio": "My bio"
+}
+```
+
+### Celery Tasks
+
+Tạo custom task trong `apps/api/tasks.py`:
+
+```python
+from celery import shared_task
+
+@shared_task
+def send_email_task(email):
+    # Send email logic
+    return f"Email sent to {email}"
+```
+
+Sử dụng task:
+
+```python
+from apps.api.tasks import send_email_task
+
+# Gọi async
+result = send_email_task.delay('user@example.com')
+
+# Hoặc gọi ngay lập tức
+result = send_email_task('user@example.com')
+```
+
+## 🧪 Testing
+
+Chạy tests:
+
+```bash
+# Tất cả tests
+python manage.py test
+
+# Test specific app
+python manage.py test apps.users
+
+# With coverage
+coverage run --source='.' manage.py test
+coverage report
+```
+
+## 🚀 Triển khai Production
+
+### 1. Chuẩn bị môi trường
+
+```bash
+# Update .env file với production settings
+DJANGO_SETTINGS_MODULE=config.settings.production
+DEBUG=False
+SECRET_KEY=<generate-strong-secret-key>
+ALLOWED_HOSTS=yourdomain.com,www.yourdomain.com
+DB_PASSWORD=<strong-database-password>
+```
+
+### 2. Sử dụng Docker Compose
+
+```bash
+# Build production images
+docker-compose -f docker-compose.yml up -d --build
+
+# Run migrations
+docker-compose exec web python manage.py migrate
+
+# Create superuser
+docker-compose exec web python manage.py createsuperuser
+
+# Collect static files
+docker-compose exec web python manage.py collectstatic --noinput
+```
+
+### 3. Cấu hình Nginx (nếu không dùng Docker)
+
+```nginx
+server {
+    listen 80;
+    server_name yourdomain.com;
+
+    location /static/ {
+        alias /path/to/staticfiles/;
+    }
+
+    location /media/ {
+        alias /path/to/media/;
+    }
+
+    location / {
+        proxy_pass http://127.0.0.1:8000;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    }
+}
+```
+
+### 4. Chạy Gunicorn
+
+```bash
+gunicorn config.wsgi:application --bind 0.0.0.0:8000 --workers 3
+```
+
+### 5. Setup SSL với Let's Encrypt
+
+```bash
+sudo apt install certbot python3-certbot-nginx
+sudo certbot --nginx -d yourdomain.com
+```
+
+### 6. Monitoring & Logging
+
+```bash
+# Xem logs
+docker-compose logs -f web
+
+# Database backup
+docker-compose exec db pg_dump -U postgres django_dev > backup.sql
+
+# Database restore
+docker-compose exec -T db psql -U postgres django_dev < backup.sql
+```
+
+## 🔒 Bảo mật
+
+### Checklist Production
+
+- ✅ Set `DEBUG=False`
+- ✅ Sử dụng strong `SECRET_KEY`
+- ✅ Cấu hình `ALLOWED_HOSTS` đúng
+- ✅ Enable HTTPS
+- ✅ Set secure cookies (`SESSION_COOKIE_SECURE`, `CSRF_COOKIE_SECURE`)
+- ✅ Cấu hình CORS đúng
+- ✅ Sử dụng environment variables cho sensitive data
+- ✅ Regular security updates
+- ✅ Database backups
+- ✅ Rate limiting cho API
+
+## 📚 Tài liệu tham khảo
+
+- [Django Documentation](https://docs.djangoproject.com/)
+- [Django REST Framework](https://www.django-rest-framework.org/)
+- [Celery Documentation](https://docs.celeryproject.org/)
+- [PostgreSQL Documentation](https://www.postgresql.org/docs/)
+- [Bootstrap Documentation](https://getbootstrap.com/docs/)
+
+## 🤝 Đóng góp
+
+1. Fork repository
+2. Tạo feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to branch (`git push origin feature/AmazingFeature`)
+5. Tạo Pull Request
+
+## 📝 License
+
+This project is licensed under the MIT License.
+
+## 👨‍💻 Tác giả
+
+Dự án được xây dựng bởi Senior Full-Stack Developer
+
+## 📧 Liên hệ
+
+- Email: your-email@example.com
+- GitHub: [@yourusername](https://github.com/yourusername)
+
+---
+
+**Lưu ý**: Đây là template dự án. Hãy tùy chỉnh theo nhu cầu cụ thể của bạn.
